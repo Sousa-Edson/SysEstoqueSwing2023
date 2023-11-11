@@ -18,6 +18,7 @@ public class ItemDialog extends javax.swing.JDialog {
      * Creates new form ItemDialog
      */
     Produto produto;
+    int idTransacao=0;
 
     public ItemDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -31,6 +32,16 @@ public class ItemDialog extends javax.swing.JDialog {
         carregaProduto();
         txtQuantidade.requestFocus();
     }
+    
+    public ItemDialog(java.awt.Frame parent, boolean modal, Produto produto,int idTransacao) {
+        super(parent, modal);
+        initComponents();
+        this.produto = produto;
+        carregaProduto();
+        txtQuantidade.requestFocus();
+        this.idTransacao=idTransacao;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

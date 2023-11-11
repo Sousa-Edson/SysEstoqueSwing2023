@@ -1229,6 +1229,11 @@ public final class Principal extends javax.swing.JFrame {
             }
         ));
         tbItemTransacao.getTableHeader().setReorderingAllowed(false);
+        tbItemTransacao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbItemTransacaoMouseClicked(evt);
+            }
+        });
         tbItemTransacao.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tbItemTransacaoKeyReleased(evt);
@@ -2503,6 +2508,49 @@ public final class Principal extends javax.swing.JFrame {
     private void txtBuscarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarRelatorioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarRelatorioActionPerformed
+
+    private void tbItemTransacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbItemTransacaoMouseClicked
+        int columnIndex = tbItemTransacao.getSelectedColumn(); // Obtenha populaProdutos linha selecionada na tabela
+        if (columnIndex == 0) {
+            if (evt.getClickCount() == 2) { // Verifica se foi um duplo clique
+                Object[] options = {"Confirmar", "Cancelar"};
+                if (JOptionPane.showOptionDialog(null, "Clique Confirmar para editar este item ",
+                        "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
+                        null, options, options[1]) == 0) {
+
+                    int rowIndex = tbItemTransacao.getSelectedRow();
+                    int idTransacao = (int) tbItemTransacao.getValueAt(rowIndex, 0);
+                    int idTransacaoProduto = (int) tbItemTransacao.getValueAt(rowIndex, 1);
+                    Produto transacaoProduto = produtoController.obterProdutoPorId(idTransacaoProduto);
+
+                    if (transacaoProduto != null) {
+                        ItemDialog itemDialog = new ItemDialog(this,
+                                rootPaneCheckingEnabled, transacaoProduto, idTransacao);
+                        itemDialog.setVisible(true);
+                        try {
+                            System.out.println("idTransacao::"+idTransacao);
+                            Item item = new Item(
+                                    transacaoProduto,
+                                    "" + itemDialog.getTxtComplemento().getText().toUpperCase(),
+                                    new BigDecimal("" + itemDialog.getTxtQuantidade().getText().replace(",", ".")),
+                                    (TipoNota) cbTipoTransacao.getSelectedItem());
+                            item.setId(idTransacao);
+                            if (idTransacao != 0) {
+                                transacaoController.editaItem(item);
+                            } else {
+                                transacaoController.adicionarItem(item);
+                            }
+                            carregarTabelaItemTransacao();
+                        } catch (Exception e) {
+                            System.out.println("ERRO====>>>>" + e);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(rootPane, "Produto inválido!");
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_tbItemTransacaoMouseClicked
 
     /**
      * @param args the command line arguments

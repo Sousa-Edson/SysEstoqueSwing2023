@@ -47,7 +47,7 @@ public class TransacaoController {
     }
 
     public boolean atualizarTransacao(Transacao transacao) {
-        return transacaoDAO.atualizarTransacao(transacao); 
+        return transacaoDAO.atualizarTransacao(transacao);
     }
 
     public void excluirTransacao(int id) {
@@ -57,6 +57,16 @@ public class TransacaoController {
     public void adicionarItem(Item item) {
         itens.add(item);
         System.out.println("adicionado:::" + item.toString());
+    }
+
+    public void editaItem(Item item) {
+        System.out.println("editaItem::" + item);
+        for (int i = 0; i < itens.size(); i++) {
+            if (i == item.getId() - 1) {
+                itens.get(i).setQuantidade(item.getQuantidade());
+                break;
+            }
+        }
     }
 
     public List<Item> listarItens() {
