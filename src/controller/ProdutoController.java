@@ -73,7 +73,19 @@ public class ProdutoController {
     public List<Produto> filtrarProdutos(String termoPesquisa) {
         List<Produto> produtosFiltrados = new ArrayList<>();
         produtos.stream().filter((produto) -> (produto.getDescricao().toUpperCase().contains(termoPesquisa.toUpperCase())
-                || produto.getObservacao().toUpperCase().contains(termoPesquisa.toUpperCase()))).forEachOrdered((produto) -> {
+                || produto.getObservacao().toUpperCase().contains(termoPesquisa.toUpperCase())))
+                .forEachOrdered((produto) -> {
+            produtosFiltrados.add(produto);
+        });
+        return produtosFiltrados;
+    }
+    
+    public List<Produto> filtrarProdutosAtivos(String termoPesquisa) {
+        List<Produto> produtosFiltrados = new ArrayList<>();
+        produtos.stream().filter((produto) -> (produto.getDescricao().toUpperCase().contains(termoPesquisa.toUpperCase())
+                || produto.getObservacao().toUpperCase().contains(termoPesquisa.toUpperCase())))
+                 .filter(Produto::isAtivo) // Adiciona o filtro para produtos ativos
+                .forEachOrdered((produto) -> {
             produtosFiltrados.add(produto);
         });
         return produtosFiltrados;

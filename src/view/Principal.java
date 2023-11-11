@@ -99,7 +99,7 @@ public final class Principal extends javax.swing.JFrame {
         lblConfiguracoes = new javax.swing.JLabel();
         pnPrincipal = new javax.swing.JPanel();
         pncPrincipal = new javax.swing.JLayeredPane();
-        pn1 = new javax.swing.JPanel();
+        pnExpedicao = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tbExpedicao = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
@@ -124,14 +124,14 @@ public final class Principal extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         lblEnviado = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        pn2 = new javax.swing.JPanel();
+        pnProduto = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbProduto = new javax.swing.JTable();
         btnNovo = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        pn3 = new javax.swing.JPanel();
+        pnTransacao = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbTransacoes = new javax.swing.JTable();
@@ -139,14 +139,14 @@ public final class Principal extends javax.swing.JFrame {
         txtBuscarTransacao = new javax.swing.JTextField();
         btnBuscarTransacoes = new javax.swing.JButton();
         cbSelecionaTipoTransacao = new javax.swing.JComboBox<>();
-        pn4 = new javax.swing.JPanel();
+        pnRelatorio = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         tbRelatorio = new javax.swing.JTable();
         txtBuscarRelatorio = new javax.swing.JTextField();
         btnBuscarRelatorio = new javax.swing.JButton();
         cbSelecionaTipoTransacaoRelatorio = new javax.swing.JComboBox<>();
-        pn5 = new javax.swing.JPanel();
+        pnConfiguracao = new javax.swing.JPanel();
         pnConfiguracoesUnidades = new javax.swing.JPanel();
         lblConfiguracoesUnidades = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -157,7 +157,7 @@ public final class Principal extends javax.swing.JFrame {
         lblEmpresas = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        pn6 = new javax.swing.JPanel();
+        pnNovaTransacao = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbItemTransacao = new javax.swing.JTable();
         cbTipoTransacao = new javax.swing.JComboBox<>();
@@ -186,8 +186,8 @@ public final class Principal extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         lblItensValorTotal = new javax.swing.JLabel();
-        pn7 = new javax.swing.JPanel();
-        pn8 = new javax.swing.JPanel();
+        pnAzul = new javax.swing.JPanel();
+        pnEmpresa = new javax.swing.JPanel();
         lblTituloCliente = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tbCliente = new javax.swing.JTable();
@@ -357,7 +357,7 @@ public final class Principal extends javax.swing.JFrame {
         pnPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         pnPrincipal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        pn1.setBackground(new java.awt.Color(255, 255, 255));
+        pnExpedicao.setBackground(new java.awt.Color(255, 255, 255));
 
         tbExpedicao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -691,16 +691,16 @@ public final class Principal extends javax.swing.JFrame {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("EXPEDIÇÃO");
 
-        javax.swing.GroupLayout pn1Layout = new javax.swing.GroupLayout(pn1);
-        pn1.setLayout(pn1Layout);
-        pn1Layout.setHorizontalGroup(
-            pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnExpedicaoLayout = new javax.swing.GroupLayout(pnExpedicao);
+        pnExpedicao.setLayout(pnExpedicaoLayout);
+        pnExpedicaoLayout.setHorizontalGroup(
+            pnExpedicaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnExpedicaoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnExpedicaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane5)
-                    .addGroup(pn1Layout.createSequentialGroup()
+                    .addGroup(pnExpedicaoLayout.createSequentialGroup()
                         .addComponent(pnExpedicaoTodas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -716,13 +716,13 @@ public final class Principal extends javax.swing.JFrame {
                         .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        pn1Layout.setVerticalGroup(
-            pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn1Layout.createSequentialGroup()
+        pnExpedicaoLayout.setVerticalGroup(
+            pnExpedicaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnExpedicaoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnExpedicaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnExpedicaoEmPreparacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -735,9 +735,9 @@ public final class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pn1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPanel1, jPanel10, jPanel11, jPanel12, jPanel7, pnExpedicaoEmPreparacao, pnExpedicaoTodas});
+        pnExpedicaoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPanel1, jPanel10, jPanel11, jPanel12, jPanel7, pnExpedicaoEmPreparacao, pnExpedicaoTodas});
 
-        pn2.setBackground(new java.awt.Color(255, 255, 255));
+        pnProduto.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 2, 36)); // NOI18N
         jLabel2.setText("PRODUTOS");
@@ -806,18 +806,18 @@ public final class Principal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout pn2Layout = new javax.swing.GroupLayout(pn2);
-        pn2.setLayout(pn2Layout);
-        pn2Layout.setHorizontalGroup(
-            pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnProdutoLayout = new javax.swing.GroupLayout(pnProduto);
+        pnProduto.setLayout(pnProdutoLayout);
+        pnProdutoLayout.setHorizontalGroup(
+            pnProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnProdutoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(pn2Layout.createSequentialGroup()
+                    .addGroup(pnProdutoLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pn2Layout.createSequentialGroup()
+                    .addGroup(pnProdutoLayout.createSequentialGroup()
                         .addComponent(btnNovo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 385, Short.MAX_VALUE)
                         .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -825,13 +825,13 @@ public final class Principal extends javax.swing.JFrame {
                         .addComponent(btnBuscar)))
                 .addContainerGap())
         );
-        pn2Layout.setVerticalGroup(
-            pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn2Layout.createSequentialGroup()
+        pnProdutoLayout.setVerticalGroup(
+            pnProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnProdutoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnNovo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -840,9 +840,9 @@ public final class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pn2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBuscar, btnNovo, txtBuscar});
+        pnProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBuscar, btnNovo, txtBuscar});
 
-        pn3.setBackground(new java.awt.Color(255, 255, 255));
+        pnTransacao.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 2, 36)); // NOI18N
         jLabel3.setText("TRANSAÇÕES");
@@ -900,18 +900,18 @@ public final class Principal extends javax.swing.JFrame {
 
         cbSelecionaTipoTransacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODAS", "ENTRADAS", "SAIDAS" }));
 
-        javax.swing.GroupLayout pn3Layout = new javax.swing.GroupLayout(pn3);
-        pn3.setLayout(pn3Layout);
-        pn3Layout.setHorizontalGroup(
-            pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn3Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnTransacaoLayout = new javax.swing.GroupLayout(pnTransacao);
+        pnTransacao.setLayout(pnTransacaoLayout);
+        pnTransacaoLayout.setHorizontalGroup(
+            pnTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnTransacaoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
-                    .addGroup(pn3Layout.createSequentialGroup()
+                    .addGroup(pnTransacaoLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pn3Layout.createSequentialGroup()
+                    .addGroup(pnTransacaoLayout.createSequentialGroup()
                         .addComponent(btnNovaTransacao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
                         .addComponent(cbSelecionaTipoTransacao, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -921,13 +921,13 @@ public final class Principal extends javax.swing.JFrame {
                         .addComponent(btnBuscarTransacoes)))
                 .addContainerGap())
         );
-        pn3Layout.setVerticalGroup(
-            pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn3Layout.createSequentialGroup()
+        pnTransacaoLayout.setVerticalGroup(
+            pnTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnTransacaoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnBuscarTransacoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtBuscarTransacao)
                     .addComponent(cbSelecionaTipoTransacao)
@@ -982,18 +982,18 @@ public final class Principal extends javax.swing.JFrame {
 
         cbSelecionaTipoTransacaoRelatorio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODAS", "ENTRADAS", "SAIDAS" }));
 
-        javax.swing.GroupLayout pn4Layout = new javax.swing.GroupLayout(pn4);
-        pn4.setLayout(pn4Layout);
-        pn4Layout.setHorizontalGroup(
-            pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn4Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnRelatorioLayout = new javax.swing.GroupLayout(pnRelatorio);
+        pnRelatorio.setLayout(pnRelatorioLayout);
+        pnRelatorioLayout.setHorizontalGroup(
+            pnRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnRelatorioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pn4Layout.createSequentialGroup()
+                .addGroup(pnRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnRelatorioLayout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 965, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn4Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnRelatorioLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(cbSelecionaTipoTransacaoRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1002,24 +1002,24 @@ public final class Principal extends javax.swing.JFrame {
                         .addComponent(btnBuscarRelatorio)))
                 .addContainerGap())
         );
-        pn4Layout.setVerticalGroup(
-            pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn4Layout.createSequentialGroup()
+        pnRelatorioLayout.setVerticalGroup(
+            pnRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnRelatorioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnBuscarRelatorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtBuscarRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cbSelecionaTipoTransacaoRelatorio)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE))
         );
 
-        pn4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBuscarRelatorio, cbSelecionaTipoTransacaoRelatorio, txtBuscarRelatorio});
+        pnRelatorioLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBuscarRelatorio, cbSelecionaTipoTransacaoRelatorio, txtBuscarRelatorio});
 
-        pn5.setBackground(new java.awt.Color(255, 255, 255));
+        pnConfiguracao.setBackground(new java.awt.Color(255, 255, 255));
 
         pnConfiguracoesUnidades.setBackground(new java.awt.Color(255, 255, 255));
         pnConfiguracoesUnidades.setPreferredSize(new java.awt.Dimension(268, 268));
@@ -1183,49 +1183,49 @@ public final class Principal extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout pn5Layout = new javax.swing.GroupLayout(pn5);
-        pn5.setLayout(pn5Layout);
-        pn5Layout.setHorizontalGroup(
-            pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn5Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnConfiguracaoLayout = new javax.swing.GroupLayout(pnConfiguracao);
+        pnConfiguracao.setLayout(pnConfiguracaoLayout);
+        pnConfiguracaoLayout.setHorizontalGroup(
+            pnConfiguracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnConfiguracaoLayout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnConfiguracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnConfiguracoesUnidades, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE))
+                    .addComponent(pnConfiguracoesUnidades, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnConfiguracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnConfiguracoesNcm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnConfiguracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(32, 32, 32))
         );
-        pn5Layout.setVerticalGroup(
-            pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn5Layout.createSequentialGroup()
+        pnConfiguracaoLayout.setVerticalGroup(
+            pnConfiguracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnConfiguracaoLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnConfiguracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnConfiguracoesNcm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnConfiguracoesUnidades, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnConfiguracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(62, 62, 62))
         );
 
-        pn6.setBackground(new java.awt.Color(255, 255, 255));
+        pnNovaTransacao.setBackground(new java.awt.Color(255, 255, 255));
 
         tbItemTransacao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "#", "Nome do Produto", "Unidade", "Valor", "Quantidade", "Complemento", "Total item"
+
             }
         ));
         tbItemTransacao.getTableHeader().setReorderingAllowed(false);
@@ -1342,63 +1342,63 @@ public final class Principal extends javax.swing.JFrame {
 
         lblItensValorTotal.setText(" ");
 
-        javax.swing.GroupLayout pn6Layout = new javax.swing.GroupLayout(pn6);
-        pn6.setLayout(pn6Layout);
-        pn6Layout.setHorizontalGroup(
-            pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn6Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnNovaTransacaoLayout = new javax.swing.GroupLayout(pnNovaTransacao);
+        pnNovaTransacao.setLayout(pnNovaTransacaoLayout);
+        pnNovaTransacaoLayout.setHorizontalGroup(
+            pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnNovaTransacaoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
-                    .addGroup(pn6Layout.createSequentialGroup()
-                        .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(pnNovaTransacaoLayout.createSequentialGroup()
+                        .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtTransacaoNota)
                                 .addComponent(cbTipoTransacao, javax.swing.GroupLayout.Alignment.LEADING, 0, 129, Short.MAX_VALUE)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pn6Layout.createSequentialGroup()
-                                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnNovaTransacaoLayout.createSequentialGroup()
+                                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cbCfop, 0, 230, Short.MAX_VALUE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn6Layout.createSequentialGroup()
-                                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnNovaTransacaoLayout.createSequentialGroup()
+                                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtTransacaoChave)
-                                    .addGroup(pn6Layout.createSequentialGroup()
+                                    .addGroup(pnNovaTransacaoLayout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn6Layout.createSequentialGroup()
+                                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnNovaTransacaoLayout.createSequentialGroup()
                                         .addComponent(txtTransacaoData)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnTransacaoPegaData))
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn6Layout.createSequentialGroup()
+                                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnNovaTransacaoLayout.createSequentialGroup()
                                         .addComponent(txtTransacaoHora, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnTransacaoPegaHora))
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(pn6Layout.createSequentialGroup()
-                        .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnNovaTransacaoLayout.createSequentialGroup()
+                        .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtIdProdutoTransacao, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cbTransacaoProduto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(35, 35, 35)
                         .addComponent(btnAdicionarProdutoTransacao))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn6Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnNovaTransacaoLayout.createSequentialGroup()
                         .addComponent(jButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblItensValorTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1408,29 +1408,29 @@ public final class Principal extends javax.swing.JFrame {
                         .addComponent(btnSalvarTransacao)))
                 .addContainerGap())
         );
-        pn6Layout.setVerticalGroup(
-            pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn6Layout.createSequentialGroup()
+        pnNovaTransacaoLayout.setVerticalGroup(
+            pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnNovaTransacaoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel13)
                 .addGap(22, 22, 22)
-                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbTipoTransacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbCfop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTransacaoNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTransacaoChave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTransacaoData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1438,18 +1438,18 @@ public final class Principal extends javax.swing.JFrame {
                     .addComponent(btnTransacaoPegaData)
                     .addComponent(btnTransacaoPegaHora))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdProdutoTransacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbTransacaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdicionarProdutoTransacao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvarTransacao)
                     .addComponent(btnAdicionarObservacao)
                     .addComponent(jButton6)
@@ -1457,24 +1457,24 @@ public final class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pn6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdicionarProdutoTransacao, cbTransacaoProduto, txtIdProdutoTransacao});
+        pnNovaTransacaoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdicionarProdutoTransacao, cbTransacaoProduto, txtIdProdutoTransacao});
 
-        pn6Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnTransacaoPegaData, btnTransacaoPegaHora, cbCfop, cbCliente, cbTipoTransacao, txtTransacaoChave, txtTransacaoData, txtTransacaoHora, txtTransacaoNota});
+        pnNovaTransacaoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnTransacaoPegaData, btnTransacaoPegaHora, cbCfop, cbCliente, cbTipoTransacao, txtTransacaoChave, txtTransacaoData, txtTransacaoHora, txtTransacaoNota});
 
-        pn7.setBackground(new java.awt.Color(0, 0, 255));
+        pnAzul.setBackground(new java.awt.Color(0, 0, 255));
 
-        javax.swing.GroupLayout pn7Layout = new javax.swing.GroupLayout(pn7);
-        pn7.setLayout(pn7Layout);
-        pn7Layout.setHorizontalGroup(
-            pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnAzulLayout = new javax.swing.GroupLayout(pnAzul);
+        pnAzul.setLayout(pnAzulLayout);
+        pnAzulLayout.setHorizontalGroup(
+            pnAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 965, Short.MAX_VALUE)
         );
-        pn7Layout.setVerticalGroup(
-            pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnAzulLayout.setVerticalGroup(
+            pnAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 534, Short.MAX_VALUE)
         );
 
-        pn8.setBackground(new java.awt.Color(255, 255, 255));
+        pnEmpresa.setBackground(new java.awt.Color(255, 255, 255));
 
         lblTituloCliente.setFont(new java.awt.Font("Liberation Sans", 2, 36)); // NOI18N
         lblTituloCliente.setText("EMPRESAS");
@@ -1529,18 +1529,18 @@ public final class Principal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout pn8Layout = new javax.swing.GroupLayout(pn8);
-        pn8.setLayout(pn8Layout);
-        pn8Layout.setHorizontalGroup(
-            pn8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn8Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnEmpresaLayout = new javax.swing.GroupLayout(pnEmpresa);
+        pnEmpresa.setLayout(pnEmpresaLayout);
+        pnEmpresaLayout.setHorizontalGroup(
+            pnEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnEmpresaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pn8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4)
-                    .addGroup(pn8Layout.createSequentialGroup()
+                    .addGroup(pnEmpresaLayout.createSequentialGroup()
                         .addComponent(lblTituloCliente)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pn8Layout.createSequentialGroup()
+                    .addGroup(pnEmpresaLayout.createSequentialGroup()
                         .addComponent(btnNovoCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
                         .addComponent(txtBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1548,13 +1548,13 @@ public final class Principal extends javax.swing.JFrame {
                         .addComponent(btnBuscaCliente)))
                 .addContainerGap())
         );
-        pn8Layout.setVerticalGroup(
-            pn8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn8Layout.createSequentialGroup()
+        pnEmpresaLayout.setVerticalGroup(
+            pnEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnEmpresaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTituloCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnBuscaCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtBuscarCliente)
                     .addComponent(btnNovoCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1563,14 +1563,14 @@ public final class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pncPrincipal.setLayer(pn1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        pncPrincipal.setLayer(pn2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        pncPrincipal.setLayer(pn3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        pncPrincipal.setLayer(pn4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        pncPrincipal.setLayer(pn5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        pncPrincipal.setLayer(pn6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        pncPrincipal.setLayer(pn7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        pncPrincipal.setLayer(pn8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pncPrincipal.setLayer(pnExpedicao, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pncPrincipal.setLayer(pnProduto, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pncPrincipal.setLayer(pnTransacao, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pncPrincipal.setLayer(pnRelatorio, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pncPrincipal.setLayer(pnConfiguracao, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pncPrincipal.setLayer(pnNovaTransacao, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pncPrincipal.setLayer(pnAzul, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pncPrincipal.setLayer(pnEmpresa, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout pncPrincipalLayout = new javax.swing.GroupLayout(pncPrincipal);
         pncPrincipal.setLayout(pncPrincipalLayout);
@@ -1578,84 +1578,84 @@ public final class Principal extends javax.swing.JFrame {
             pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pncPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnExpedicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnTransacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnConfiguracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addGap(6, 6, 6)
-                    .addComponent(pn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnNovaTransacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(6, 6, 6)))
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addGap(12, 12, 12)
-                    .addComponent(pn8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(12, 12, 12)))
         );
         pncPrincipalLayout.setVerticalGroup(
             pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pncPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnExpedicao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnTransacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addGap(9, 9, 9)
-                    .addComponent(pn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnConfiguracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(9, 9, 9)))
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addGap(9, 9, 9)
-                    .addComponent(pn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnNovaTransacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(9, 9, 9)))
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(pncPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pncPrincipalLayout.createSequentialGroup()
                     .addGap(12, 12, 12)
-                    .addComponent(pn8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(12, 12, 12)))
         );
 
@@ -2623,21 +2623,21 @@ public final class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTituloCliente;
     private javax.swing.JLabel lblTransacoes;
-    private javax.swing.JPanel pn1;
-    private javax.swing.JPanel pn2;
-    private javax.swing.JPanel pn3;
-    private javax.swing.JPanel pn4;
-    private javax.swing.JPanel pn5;
-    private javax.swing.JPanel pn6;
-    private javax.swing.JPanel pn7;
-    private javax.swing.JPanel pn8;
+    private javax.swing.JPanel pnAzul;
+    private javax.swing.JPanel pnConfiguracao;
     private javax.swing.JPanel pnConfiguracoesNcm;
     private javax.swing.JPanel pnConfiguracoesUnidades;
+    private javax.swing.JPanel pnEmpresa;
+    private javax.swing.JPanel pnExpedicao;
     private javax.swing.JPanel pnExpedicaoEmPreparacao;
     private javax.swing.JPanel pnExpedicaoTodas;
     private javax.swing.JPanel pnMenuLateral;
+    private javax.swing.JPanel pnNovaTransacao;
     private javax.swing.JPanel pnPrincipal;
+    private javax.swing.JPanel pnProduto;
+    private javax.swing.JPanel pnRelatorio;
     private javax.swing.JPanel pnTela;
+    private javax.swing.JPanel pnTransacao;
     private javax.swing.JLayeredPane pncPrincipal;
     private javax.swing.JScrollPane spMenuLateral;
     private javax.swing.JTable tbCliente;
@@ -2658,14 +2658,14 @@ public final class Principal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void chamaPainel(int pn) {
-        pn1.setVisible(pn == 1);
-        pn2.setVisible(pn == 2);
-        pn3.setVisible(pn == 3);
-        pn4.setVisible(pn == 4);
-        pn5.setVisible(pn == 5);
-        pn6.setVisible(pn == 6);
-        pn7.setVisible(pn == 7);
-        pn8.setVisible(pn == 8);
+        pnExpedicao.setVisible(pn == 1);
+        pnProduto.setVisible(pn == 2);
+        pnTransacao.setVisible(pn == 3);
+        pnRelatorio.setVisible(pn == 4);
+        pnConfiguracao.setVisible(pn == 5);
+        pnNovaTransacao.setVisible(pn == 6);
+        pnAzul.setVisible(pn == 7);
+        pnEmpresa.setVisible(pn == 8);
     }
 
     public void eventoSairPrograma() {
@@ -2734,7 +2734,7 @@ public final class Principal extends javax.swing.JFrame {
     private void populaCbProduto(String busca) throws SQLException {
 
         DefaultComboBoxModel<Produto> model = new DefaultComboBoxModel<>();
-        for (Produto produto : produtoController.filtrarProdutos(busca)) {
+        for (Produto produto : produtoController.filtrarProdutosAtivos(busca)) {
             model.addElement(produto);
         }
         cbTransacaoProduto.setModel(model);

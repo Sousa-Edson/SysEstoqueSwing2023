@@ -16,7 +16,7 @@ import util.Numero;
 public class ItemTableModel extends AbstractTableModel {
 
     private List<Item> itens;
-    private String[] colunas = {"#", "Nome do Produto", "Unidade", "Valor", "Quantidade", "Complemento", "Total item"};
+    private String[] colunas = {"#", "Id do Produto", "Nome do Produto", "Unidade", "Valor", "Quantidade", "Complemento", "Total item"};
 
     public ItemTableModel(List<Item> itens) {
         this.itens = itens;
@@ -40,17 +40,19 @@ public class ItemTableModel extends AbstractTableModel {
             case 0:
                 return rowIndex + 1;
             case 1:
-                return item.getProduto().getDescricao();  
+                return item.getProduto().getId();
             case 2:
-                return item.getProduto().getUnidade().getSigla();
+                return item.getProduto().getDescricao();
             case 3:
-                return Moeda.formatadorDeMoeda("" + item.getProduto().getValor());
+                return item.getProduto().getUnidade().getSigla();
             case 4:
-                return Numero.deStringForBigDecimal("" + item.getQuantidade());
+                return Moeda.formatadorDeMoeda("" + item.getProduto().getValor());
             case 5:
-                return item.getComplemento();
+                return Numero.deStringForBigDecimal("" + item.getQuantidade());
             case 6:
-                return Moeda.formatadorDeMoeda(""+item.getQuantidade().multiply(item.getProduto().getValor()));
+                return item.getComplemento();
+            case 7:
+                return Moeda.formatadorDeMoeda("" + item.getQuantidade().multiply(item.getProduto().getValor()));
             default:
                 return null;
         }
