@@ -18,7 +18,7 @@ import util.Numero;
 public class TransacaoRelatorioTableModel extends AbstractTableModel {
 
     private final List<Item> itens;
-    private final String[] colunas = {"ID", "Tipo da Nota", "Cliente", "Produto", "Complemento", "Quantidade", "Unidade", "Valor", "Data", "Nota"};
+    private final String[] colunas = {"ID", "Tipo da Nota", "Data", "Nota", "Cliente", "Produto", "Complemento", "Quantidade", "Unidade", "Valor"};
 
     public TransacaoRelatorioTableModel(List<Item> itens) {
         this.itens = itens;
@@ -43,20 +43,8 @@ public class TransacaoRelatorioTableModel extends AbstractTableModel {
                 return item.getId(); // Supondo que getId() retorne o ID do item
             case 1:
                 return item.getTransacao().getTipo(); // Supondo que getTipoNota() retorne o tipo da nota (entrada/saída)
-            case 2:
-                return item.getTransacao().getCliente().getNomeFantasia(); // Supondo que getCliente().getNome() retorne o nome do cliente
-            case 3:
-                return item.getProduto().getDescricao(); // Supondo que getProduto().getNome() retorne o nome do produto
-            case 4:
-                return item.getComplemento(); // Supondo que getComplemento() retorne o complemento
-            case 5:
-                return Numero.deStringForBigDecimal("" + item.getQuantidade());
-            case 6:
-                return item.getProduto().getUnidade().getSigla();
-            case 7:
-                return Moeda.formatadorDeMoeda("" + item.getProduto().getValor());
 
-            case 8:
+            case 2:
                 Date data = item.getTransacao().getData(); // Supondo que getData() retorne a data da nota
                 if (data != null) {
                     SimpleDateFormat dataFormatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -64,8 +52,21 @@ public class TransacaoRelatorioTableModel extends AbstractTableModel {
                 } else {
                     return ""; // Ou outra mensagem indicando valor nulo
                 }
-            case 9:
+            case 3:
                 return item.getTransacao().getNota(); // Supondo que getNota() retorne o número da nota
+            case 4:
+                return item.getTransacao().getCliente().getNomeFantasia(); // Supondo que getCliente().getNome() retorne o nome do cliente
+            case 5:
+                return item.getProduto().getDescricao(); // Supondo que getProduto().getNome() retorne o nome do produto
+            case 6:
+                return item.getComplemento(); // Supondo que getComplemento() retorne o complemento
+            case 7:
+                return Numero.deStringForBigDecimal("" + item.getQuantidade());
+            case 8:
+                return item.getProduto().getUnidade().getSigla();
+            case 9:
+                return Moeda.formatadorDeMoeda("" + item.getProduto().getValor());
+
             default:
                 return null;
         }

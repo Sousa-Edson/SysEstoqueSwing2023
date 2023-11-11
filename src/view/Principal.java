@@ -2930,7 +2930,7 @@ public final class Principal extends javax.swing.JFrame {
         TableColumnModel columnModel = tbRelatorio.getColumnModel();
 // Define a largura desejada para a segunda coluna
         int larguraDesejada = 400; // Largura desejada em pixels
-        int colunaIndex = 3; // Índice da coluna, supondo que seja a segunda coluna (0 indexada)
+        int colunaIndex = 5; // Índice da coluna, supondo que seja a segunda coluna (0 indexada)
 // Define a largura preferida da coluna
         columnModel.getColumn(colunaIndex).setPreferredWidth(larguraDesejada);
         txtBuscarRelatorio.requestFocus();
