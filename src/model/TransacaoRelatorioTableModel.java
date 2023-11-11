@@ -18,7 +18,7 @@ import util.Numero;
 public class TransacaoRelatorioTableModel extends AbstractTableModel {
 
     private final List<Item> itens;
-    private final String[] colunas = {"ID", "Tipo da Nota", "Cliente", "Produto", "Quantidade", "Unidade", "Valor", "Complemento", "Data", "Nota"};
+    private final String[] colunas = {"ID", "Tipo da Nota", "Cliente", "Produto", "Complemento", "Quantidade", "Unidade", "Valor", "Data", "Nota"};
 
     public TransacaoRelatorioTableModel(List<Item> itens) {
         this.itens = itens;
@@ -48,13 +48,14 @@ public class TransacaoRelatorioTableModel extends AbstractTableModel {
             case 3:
                 return item.getProduto().getDescricao(); // Supondo que getProduto().getNome() retorne o nome do produto
             case 4:
-                return Numero.deStringForBigDecimal("" + item.getQuantidade());
-            case 5:
-                return item.getProduto().getUnidade().getSigla();
-            case 6:
-              return  Moeda.formatadorDeMoeda("" + item.getProduto().getValor()); 
-            case 7:
                 return item.getComplemento(); // Supondo que getComplemento() retorne o complemento
+            case 5:
+                return Numero.deStringForBigDecimal("" + item.getQuantidade());
+            case 6:
+                return item.getProduto().getUnidade().getSigla();
+            case 7:
+                return Moeda.formatadorDeMoeda("" + item.getProduto().getValor());
+
             case 8:
                 Date data = item.getTransacao().getData(); // Supondo que getData() retorne a data da nota
                 if (data != null) {
