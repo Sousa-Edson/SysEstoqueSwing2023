@@ -2528,7 +2528,7 @@ public final class Principal extends javax.swing.JFrame {
                                 rootPaneCheckingEnabled, transacaoProduto, idTransacao);
                         itemDialog.setVisible(true);
                         try {
-                            System.out.println("idTransacao::"+idTransacao);
+                            System.out.println("idTransacao::" + idTransacao);
                             Item item = new Item(
                                     transacaoProduto,
                                     "" + itemDialog.getTxtComplemento().getText().toUpperCase(),
@@ -2822,18 +2822,45 @@ public final class Principal extends javax.swing.JFrame {
                 DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
                 Time hora = new Time(timeFormat.parse(horaTexto).getTime());
 
-                // Agora você tem os objetos Date e Time com a data e a hora analisadas dos JTextField.
+                List<Item> itens = transacaoController.listarItens();
                 Transacao transacao;
                 transacao = new Transacao(0, tipoNota, cfop, cliente,
                         nota, chave, data,
-                        hora, informacoesComplementares, motorista, transacaoController.listarItens());
-
-                if (transacaoController.salvarTransacao(transacao)) {
-                    JOptionPane.showMessageDialog(rootPane,
-                            "Trasanção salva com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-                    transacaoController.limparItens();
-                    carregarTabelaItemTransacao();
-                    limparCamposTransacao();
+                        hora, informacoesComplementares, motorista, itens);
+                Boolean tudoCorreto = true;
+                if (itens.size() > 3) {
+                    Object[] options = {"Sim", "Não"};
+                    if (JOptionPane.showOptionDialog(null, "A transação tem mais que 5 itens\nDeseja validar os itens?",
+                            "Aviso", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
+                            null, options, options[0]) == 0) {
+                        int indice=0;
+                        for (Item iten : itens) {
+                            indice++;
+                            if (JOptionPane.showOptionDialog(null,
+                                    "Produto: " + iten.getProduto().getDescricao()
+                                    + "\nUnidade: " + iten.getProduto().getUnidade().getDescricao()
+                                    + "\nValor: " + Moeda.formatadorDeMoeda("" + iten.getProduto().getValor())
+                                    + "\nQuantidade: " + Numero.deStringForBigDecimal("" + iten.getQuantidade())
+                                    + "\nComplemento: " + iten.getComplemento()
+                                    + "\nvalor total: " + Moeda.formatadorDeMoeda("" + iten.getQuantidade().multiply(iten.getProduto().getValor())),
+                                    "Este item está correto?", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
+                                    null, options, options[0]) == 1) {
+                                JOptionPane.showMessageDialog(null, "Verifique o item [" + indice + "]");
+                                tudoCorreto = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+                System.out.println("tudo correto :: " + tudoCorreto);
+                if (tudoCorreto == true) {
+                    if (transacaoController.salvarTransacao(transacao)) {
+                        JOptionPane.showMessageDialog(rootPane,
+                                "Trasanção salva com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                        transacaoController.limparItens();
+                        carregarTabelaItemTransacao();
+                        limparCamposTransacao();
+                    }
                 }
             } catch (ParseException e) {
                 // Lida com exceções se o formato não for válido

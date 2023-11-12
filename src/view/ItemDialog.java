@@ -18,7 +18,7 @@ public class ItemDialog extends javax.swing.JDialog {
      * Creates new form ItemDialog
      */
     Produto produto;
-    int idTransacao=0;
+    int idTransacao = 0;
 
     public ItemDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -32,16 +32,15 @@ public class ItemDialog extends javax.swing.JDialog {
         carregaProduto();
         txtQuantidade.requestFocus();
     }
-    
-    public ItemDialog(java.awt.Frame parent, boolean modal, Produto produto,int idTransacao) {
+
+    public ItemDialog(java.awt.Frame parent, boolean modal, Produto produto, int idTransacao) {
         super(parent, modal);
         initComponents();
         this.produto = produto;
         carregaProduto();
         txtQuantidade.requestFocus();
-        this.idTransacao=idTransacao;
+        this.idTransacao = idTransacao;
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -221,9 +220,7 @@ public class ItemDialog extends javax.swing.JDialog {
 
     private void txtComplementoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtComplementoKeyReleased
         if (evt.getKeyCode() == evt.VK_ENTER) {
-            if (!txtComplemento.getText().trim().isEmpty()) {
-                btnAdicionarItem.requestFocus();
-            }
+            btnAdicionarItem.requestFocus();
         }
     }//GEN-LAST:event_txtComplementoKeyReleased
 

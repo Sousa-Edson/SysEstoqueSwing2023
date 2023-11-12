@@ -64,6 +64,7 @@ public class TransacaoController {
         for (int i = 0; i < itens.size(); i++) {
             if (i == item.getId() - 1) {
                 itens.get(i).setQuantidade(item.getQuantidade());
+                itens.get(i).setComplemento(item.getComplemento());
                 break;
             }
         }
