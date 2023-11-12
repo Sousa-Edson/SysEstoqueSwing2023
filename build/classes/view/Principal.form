@@ -1140,7 +1140,7 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="btnNovaTransacao" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="270" max="32767" attributes="0"/>
+                                      <EmptySpace pref="198" max="32767" attributes="0"/>
                                       <Component id="cbSelecionaTipoTransacao" min="-2" pref="163" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="txtBuscarTransacao" min="-2" pref="436" max="-2" attributes="0"/>
@@ -1433,7 +1433,7 @@
                               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jPanel4" max="32767" attributes="0"/>
-                                  <Component id="pnConfiguracoesUnidades" pref="329" max="32767" attributes="0"/>
+                                  <Component id="pnConfiguracoesUnidades" pref="308" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1704,7 +1704,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel13" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane3" pref="893" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane3" pref="961" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -1770,7 +1770,7 @@
                                       <Component id="btnAdicionarProdutoTransacao" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnVoltarTransacao" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="lblItensValorTotal" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1828,12 +1828,12 @@
                                   <Component id="btnAdicionarProdutoTransacao" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" pref="238" max="32767" attributes="0"/>
+                              <Component id="jScrollPane3" pref="240" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnSalvarTransacao" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnAdicionarObservacao" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnVoltarTransacao" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblItensValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2039,7 +2039,7 @@
                         <Property name="text" type="java.lang.String" value="ADICIONAR UMA TRANSA&#xc7;&#xc3;O"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton6">
+                    <Component class="javax.swing.JButton" name="btnVoltarTransacao">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/icones/icons8-sair-24.png"/>
@@ -2047,7 +2047,7 @@
                         <Property name="text" type="java.lang.String" value="VOLTAR"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarTransacaoActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblItensValorTotal">

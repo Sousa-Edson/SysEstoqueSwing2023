@@ -62,6 +62,8 @@ public final class Principal extends javax.swing.JFrame {
     private String motorista = "";
     String informacoesComplementares = "";
 
+    List<Item> listaDeItens;
+
     /**
      * Creates new form DashBoard
      *
@@ -184,7 +186,7 @@ public final class Principal extends javax.swing.JFrame {
         btnSalvarTransacao = new javax.swing.JButton();
         btnAdicionarObservacao = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        btnVoltarTransacao = new javax.swing.JButton();
         lblItensValorTotal = new javax.swing.JLabel();
         pnAzul = new javax.swing.JPanel();
         pnEmpresa = new javax.swing.JPanel();
@@ -1337,11 +1339,11 @@ public final class Principal extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Liberation Sans", 3, 24)); // NOI18N
         jLabel13.setText("ADICIONAR UMA TRANSAÇÃO");
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/icons8-sair-24.png"))); // NOI18N
-        jButton6.setText("VOLTAR");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltarTransacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/icons8-sair-24.png"))); // NOI18N
+        btnVoltarTransacao.setText("VOLTAR");
+        btnVoltarTransacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnVoltarTransacaoActionPerformed(evt);
             }
         });
 
@@ -1355,7 +1357,7 @@ public final class Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 961, Short.MAX_VALUE)
                     .addGroup(pnNovaTransacaoLayout.createSequentialGroup()
                         .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1404,7 +1406,7 @@ public final class Principal extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(btnAdicionarProdutoTransacao))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnNovaTransacaoLayout.createSequentialGroup()
-                        .addComponent(jButton6)
+                        .addComponent(btnVoltarTransacao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblItensValorTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1452,12 +1454,12 @@ public final class Principal extends javax.swing.JFrame {
                     .addComponent(cbTransacaoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdicionarProdutoTransacao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnNovaTransacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvarTransacao)
                     .addComponent(btnAdicionarObservacao)
-                    .addComponent(jButton6)
+                    .addComponent(btnVoltarTransacao)
                     .addComponent(lblItensValorTotal))
                 .addContainerGap())
         );
@@ -1768,6 +1770,7 @@ public final class Principal extends javax.swing.JFrame {
     private void lblDashBoardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashBoardMouseClicked
         chamaPainel(1);
         carregaTabelaExpedicao(99);
+        mostraCamposTransacao(true);
     }//GEN-LAST:event_lblDashBoardMouseClicked
 
     private void lblProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblProdutosMouseClicked
@@ -1780,6 +1783,7 @@ public final class Principal extends javax.swing.JFrame {
     private void lblTransacoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTransacoesMouseClicked
         chamaPainel(3);
         carregaTabelaTransacao();
+        mostraCamposTransacao(true);
     }//GEN-LAST:event_lblTransacoesMouseClicked
 
     private void lblRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRelatoriosMouseClicked
@@ -1874,7 +1878,7 @@ public final class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbTransacaoProdutoKeyReleased
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnVoltarTransacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarTransacaoActionPerformed
         if (transacaoController.listarItens().size() >= 1 || idDessaTransacao != 0) {
             Object[] options = {"Sim", "Não"};
             if (JOptionPane.showOptionDialog(null, "Ao sair limpar campos? ",
@@ -1890,7 +1894,7 @@ public final class Principal extends javax.swing.JFrame {
         }
         chamaPainel(3);
         carregaTabelaTransacao();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnVoltarTransacaoActionPerformed
 
     private void lblConfiguracoesUnidadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblConfiguracoesUnidadesMouseExited
         lblConfiguracoesUnidades.setForeground(Color.BLACK);
@@ -2502,7 +2506,17 @@ public final class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_tbRelatorioKeyReleased
 
     private void tbRelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbRelatorioMouseClicked
-        // TODO add your handling code here:
+        int rowIndex = tbRelatorio.getSelectedRow();
+        int idRelatorio = (int) tbRelatorio.getValueAt(rowIndex, 0);
+
+        for (Item listaDeIten : listaDeItens) {
+            if (listaDeIten.getId() == idRelatorio) {
+                exibeTransacao(listaDeIten.getTransacao().getId());
+                mostraCamposTransacao(false);
+                break;
+            }
+        }
+
     }//GEN-LAST:event_tbRelatorioMouseClicked
 
     private void txtBuscarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarRelatorioActionPerformed
@@ -2607,13 +2621,13 @@ public final class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnSalvarTransacao;
     private javax.swing.JButton btnTransacaoPegaData;
     private javax.swing.JButton btnTransacaoPegaHora;
+    private javax.swing.JButton btnVoltarTransacao;
     private javax.swing.JComboBox<CFOP> cbCfop;
     private javax.swing.JComboBox<Cliente> cbCliente;
     private javax.swing.JComboBox<String> cbSelecionaTipoTransacao;
     private javax.swing.JComboBox<String> cbSelecionaTipoTransacaoRelatorio;
     private javax.swing.JComboBox<TipoNota> cbTipoTransacao;
     private javax.swing.JComboBox<Produto> cbTransacaoProduto;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2833,7 +2847,7 @@ public final class Principal extends javax.swing.JFrame {
                     if (JOptionPane.showOptionDialog(null, "A transação tem mais que 5 itens\nDeseja validar os itens?",
                             "Aviso", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
                             null, options, options[0]) == 0) {
-                        int indice=0;
+                        int indice = 0;
                         for (Item iten : itens) {
                             indice++;
                             if (JOptionPane.showOptionDialog(null,
@@ -2997,7 +3011,7 @@ public final class Principal extends javax.swing.JFrame {
     }
 
     public void carregarTabelaRelatorio(String busca) {
-        List<Item> listaDeItens = transacaoController.listarTodosItensAtivos(busca,
+        listaDeItens = transacaoController.listarTodosItensAtivos(busca,
                 cbSelecionaTipoTransacaoRelatorio.getSelectedIndex());
         TransacaoRelatorioTableModel tableModel = new TransacaoRelatorioTableModel(listaDeItens);
         tbRelatorio.setModel(tableModel);
@@ -3026,5 +3040,17 @@ public final class Principal extends javax.swing.JFrame {
     private void mostraBotoesTransacao(Boolean esconder) {
         btnSalvarTransacao.setVisible(esconder);
         btnAdicionarObservacao.setVisible(esconder);
+    }
+
+    private void mostraCamposTransacao(Boolean esconder) {
+        btnVoltarTransacao.setVisible(esconder);
+        btnTransacaoPegaData.setVisible(esconder);
+        btnTransacaoPegaHora.setVisible(esconder);
+        btnAdicionarProdutoTransacao.setVisible(esconder);
+        cbTransacaoProduto.setVisible(esconder);
+        txtIdProdutoTransacao.setVisible(esconder);
+        jLabel10.setVisible(esconder);
+        jLabel11.setVisible(esconder);
+
     }
 }
