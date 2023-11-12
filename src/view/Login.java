@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Usuario;
+import model.UsuarioLogado;
 
 /**
  *
@@ -150,7 +151,8 @@ public class Login extends javax.swing.JFrame {
         Principal principal;
 
         try {
-            principal = new Principal();
+            principal = new Principal(usuario);
+            UsuarioLogado.setUsuarioLogado(usuario);
             principal.setVisible(true);
             this.dispose();
         } catch (SQLException ex) {
