@@ -42,6 +42,7 @@ import model.Transacao;
 import model.TransacaoRelatorioTableModel;
 import model.TransacaoTableModel;
 import model.Usuario;
+import model.UsuarioLogado;
 import renderer.HoraCellRenderer;
 import renderer.LocalDateRenderer;
 import util.DataConverter;
@@ -79,8 +80,8 @@ public final class Principal extends javax.swing.JFrame {
         carregaTabelaExpedicao(99);
         populaTransacao();
     }
-    
-      public Principal(Usuario usuario) throws SQLException {
+
+    public Principal(Usuario usuario) throws SQLException {
         initComponents();
         produtoController = new ProdutoController();
         transacaoController = new TransacaoController();
@@ -88,7 +89,7 @@ public final class Principal extends javax.swing.JFrame {
         chamaPainel(1);
         carregaTabelaExpedicao(99);
         populaTransacao();
-        JOptionPane.showMessageDialog(null, usuario);
+//        JOptionPane.showMessageDialog(null, usuario);
     }
 
     /**
@@ -2624,8 +2625,12 @@ public final class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel19MouseExited
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-       ListaUsuarioDialog listaUsuario = new ListaUsuarioDialog(this, rootPaneCheckingEnabled);
-       listaUsuario.setVisible(true);
+        if (UsuarioLogado.getUsuarioLogado().getTipoUsuario().equals(Usuario.TipoUsuario.ADMINISTRADOR)) {
+            ListaUsuarioDialog listaUsuario = new ListaUsuarioDialog(this, rootPaneCheckingEnabled);
+            listaUsuario.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Acesso negado!");
+        }
     }//GEN-LAST:event_jLabel17MouseClicked
 
     /**

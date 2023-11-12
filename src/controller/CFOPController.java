@@ -27,21 +27,16 @@ public class CFOPController {
         }
     }
 
-    public boolean salvarCFOP(int id, String codigo, String descricao, boolean ativo) {
-        // Realize validações, se necessário
-        // Certifique-se de que o código CFOP seja único
-
+    public boolean salvarCFOP(int id, String codigo, String descricao, boolean ativo) { 
         CFOP cfop = new CFOP(id, codigo, descricao, ativo);
 
         if (cfop.getDescricao().trim().isEmpty() || cfop.getCodigo().trim().isEmpty()) {
             return false;
         }
 
-        if (id == 0) {
-            // Se o ID for zero, trata-se de uma inserção
+        if (id == 0) { 
             return cfopDAO.adicionarCFOP(cfop);
-        } else {
-            // Caso contrário, é uma atualização
+        } else { 
             return cfopDAO.atualizarCFOP(cfop);
         }
     }

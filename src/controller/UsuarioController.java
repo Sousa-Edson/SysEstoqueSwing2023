@@ -10,7 +10,9 @@ package controller;
  */
 import dao.UsuarioDAO;
 import java.util.List;
+import model.Log;
 import model.Usuario;
+import service.LogService;
 
 public class UsuarioController {
 
@@ -42,8 +44,20 @@ public class UsuarioController {
 
         // Verificar se o usuário existe e a senha é válida
         if (usuario != null && usuario.verificarSenha(senha)) {
+            //salvando log
+            LogService.salvarLog(new Log(
+                    usuario.getId(),
+                    "Login:::" + nomeUsuario,
+                    Log.EventoLog.LOGAR,
+                    false));
             return usuario;
         }
+        //salvando log
+        LogService.salvarLog(new Log(
+                1,
+                "Login:::" + nomeUsuario,
+                Log.EventoLog.NEGADO,
+                false));
         return null;
     }
 

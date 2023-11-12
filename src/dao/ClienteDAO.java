@@ -19,6 +19,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Log;
+import model.UsuarioLogado;
+import service.LogService;
 
 public class ClienteDAO {
 
@@ -47,6 +50,14 @@ public class ClienteDAO {
             preparedStatement.setInt(10, cliente.getTipoEmpresa().getId());
             preparedStatement.setBoolean(11, cliente.isAtivo());
             preparedStatement.executeUpdate();
+            
+             //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Cliente",
+                    Log.EventoLog.CRIAR,
+                    false));
+            
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -74,6 +85,13 @@ public class ClienteDAO {
             preparedStatement.setBoolean(11, cliente.isAtivo());
             preparedStatement.setInt(12, cliente.getId());
             preparedStatement.executeUpdate();
+            
+             //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Cliente",
+                    Log.EventoLog.ALTERAR,
+                    false));
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -164,6 +182,14 @@ public class ClienteDAO {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
+            
+            
+             //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Cliente",
+                    Log.EventoLog.DELETAR,
+                    true));
         } catch (SQLException e) {
             e.printStackTrace();
         }

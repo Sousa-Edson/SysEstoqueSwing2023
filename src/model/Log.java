@@ -80,7 +80,9 @@ public class Log {
         CRIAR,
         ALTERAR,
         ATIVAR_DESATIVAR,
-        DELETAR
+        DELETAR,
+        LOGAR,
+        NEGADO
     }
 
 }

@@ -23,8 +23,11 @@ import java.util.List;
 import model.CFOP;
 import model.Cliente;
 import model.Item;
+import model.Log;
 import model.Produto;
 import model.Transacao;
+import model.UsuarioLogado;
+import service.LogService;
 
 public class TransacaoDAO {
 
@@ -71,6 +74,12 @@ public class TransacaoDAO {
                     preparedStatementItem.setInt(5, item.getTipo().getValor());
                     preparedStatementItem.executeUpdate();
                 }
+                //salvando log
+                LogService.salvarLog(new Log(
+                        UsuarioLogado.getUsuarioLogado().getId(),
+                        "Transacao",
+                        Log.EventoLog.CRIAR,
+                        false));
                 return true;
             }
 
@@ -90,6 +99,12 @@ public class TransacaoDAO {
             preparedStatement.setString(2, transacao.getMotorista());
             preparedStatement.setInt(3, transacao.getId());
             preparedStatement.executeUpdate();
+             //salvando log
+                LogService.salvarLog(new Log(
+                        UsuarioLogado.getUsuarioLogado().getId(),
+                        "Transacao",
+                        Log.EventoLog.ALTERAR,
+                        false));
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -194,6 +209,12 @@ public class TransacaoDAO {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
             marcarItensDaTransacaoComoDeletada(id);
+             //salvando log
+                LogService.salvarLog(new Log(
+                        UsuarioLogado.getUsuarioLogado().getId(),
+                        "Transacao",
+                        Log.EventoLog.DELETAR,
+                        true));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -295,18 +316,25 @@ public class TransacaoDAO {
 
             int linhasAfetadas = preparedStatement.executeUpdate();
 
+             //salvando log
+                LogService.salvarLog(new Log(
+                        UsuarioLogado.getUsuarioLogado().getId(),
+                        "Transacao",
+                        Log.EventoLog.ALTERAR,
+                        false));
+            
             return linhasAfetadas > 0; // Retorna verdadeiro se a atualização for bem-sucedida (uma ou mais linhas foram atualizadas)
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
     }
-    
-     public List<Item> listarTodosItensAtivos() {
+
+    public List<Item> listarTodosItensAtivos() {
         List<Item> itens = new ArrayList<>();
         try {
             String sql = "SELECT id, produto_id, complemento, quantidade, tipo, transacao_id, "
-                    + "deletado FROM item WHERE deletado = false ORDER BY id DESC " ;
+                    + "deletado FROM item WHERE deletado = false ORDER BY id DESC ";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -319,8 +347,8 @@ public class TransacaoDAO {
                 int transacao = resultSet.getInt("transacao_id");
                 List<Item> Item = null;
 
-                Item item = new Item(id,new Produto(produto), complemento, 
-                        bigDecimal, TipoNota.getById(tipoNota),new Transacao(transacao));
+                Item item = new Item(id, new Produto(produto), complemento,
+                        bigDecimal, TipoNota.getById(tipoNota), new Transacao(transacao));
                 itens.add(item);
             }
         } catch (SQLException e) {

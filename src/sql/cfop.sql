@@ -11,5 +11,6 @@ CREATE TABLE cfop (
 
 ALTER TABLE cfop
 ALTER COLUMN deletado SET DEFAULT false;
+ 
 
 SELECT * FROM cfop;

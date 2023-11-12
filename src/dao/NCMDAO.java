@@ -17,6 +17,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Log;
+import model.UsuarioLogado;
+import service.LogService;
 
 public class NCMDAO {
 
@@ -34,6 +37,13 @@ public class NCMDAO {
             preparedStatement.setString(2, ncm.getDescricao());
             preparedStatement.setBoolean(3, ncm.isAtivo());
             preparedStatement.executeUpdate();
+             //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "NCM",
+                    Log.EventoLog.CRIAR,
+                    false));
+            
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,6 +60,12 @@ public class NCMDAO {
             preparedStatement.setBoolean(3, ncm.isAtivo());
             preparedStatement.setInt(4, ncm.getId());
             preparedStatement.executeUpdate();
+              //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "NCM",
+                    Log.EventoLog.ALTERAR,
+                    false));
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -113,6 +129,12 @@ public class NCMDAO {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
+              //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "NCM",
+                    Log.EventoLog.DELETAR,
+                    true));
         } catch (SQLException e) {
             e.printStackTrace();
         }

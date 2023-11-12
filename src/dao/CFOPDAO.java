@@ -8,7 +8,6 @@ package dao;
  *
  * @author edson
  */
- 
 import conexao.ConexaoPostgres; // Importe a classe de conexão apropriada
 import model.CFOP;
 
@@ -18,8 +17,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Log;
+import model.UsuarioLogado;
+import service.LogService;
 
 public class CFOPDAO {
+
     private Connection conexao;
 
     public CFOPDAO() throws SQLException {
@@ -34,6 +37,14 @@ public class CFOPDAO {
             preparedStatement.setString(2, cfop.getDescricao());
             preparedStatement.setBoolean(3, cfop.isAtivo());
             preparedStatement.executeUpdate();
+
+            //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "CFOP",
+                    Log.EventoLog.CRIAR,
+                    false));
+
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,6 +61,12 @@ public class CFOPDAO {
             preparedStatement.setBoolean(3, cfop.isAtivo());
             preparedStatement.setInt(4, cfop.getId());
             preparedStatement.executeUpdate();
+            //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "CFOP",
+                    Log.EventoLog.ALTERAR,
+                    false));
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -113,6 +130,12 @@ public class CFOPDAO {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
+            //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "CFOP",
+                    Log.EventoLog.ATIVAR_DESATIVAR,
+                    false));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -137,13 +160,19 @@ public class CFOPDAO {
         }
         return cfops;
     }
-    
+
     public void marcarCFOPComoDeletado(int id) {
         try {
             String sql = "UPDATE cfop SET deletado = true WHERE id = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
+            //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "CFOP",
+                    Log.EventoLog.DELETAR,
+                    true));
         } catch (SQLException e) {
             e.printStackTrace();
         }

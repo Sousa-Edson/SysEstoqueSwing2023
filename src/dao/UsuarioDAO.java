@@ -11,13 +11,15 @@ package dao;
 import conexao.ConexaoPostgres;
 import model.Usuario;
 
-
- import java.sql.Connection;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Log;
+import model.UsuarioLogado;
+import service.LogService;
 
 public class UsuarioDAO {
 
@@ -38,6 +40,12 @@ public class UsuarioDAO {
             preparedStatement.setString(3, usuario.getSenhaHash());
             preparedStatement.setString(4, usuario.getTipoUsuario().name());
             preparedStatement.executeUpdate();
+            //salvando log
+            LogService.salvarLog(new Log(
+                    1,
+                    "Usuario",
+                    Log.EventoLog.CRIAR,
+                    false));
             return true;
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao adicionar usuário", e);
@@ -46,8 +54,7 @@ public class UsuarioDAO {
 
     public List<Usuario> listarUsuarios() {
         List<Usuario> usuarios = new ArrayList<>();
-        try (PreparedStatement preparedStatement = conexao.prepareStatement("SELECT * FROM usuario");
-             ResultSet resultSet = preparedStatement.executeQuery()) {
+        try (PreparedStatement preparedStatement = conexao.prepareStatement("SELECT * FROM usuario"); ResultSet resultSet = preparedStatement.executeQuery()) {
 
             while (resultSet.next()) {
                 Usuario usuario = criarUsuario(resultSet);
@@ -79,7 +86,6 @@ public class UsuarioDAO {
     }
 
     // Outros métodos conforme necessário
-
     private Usuario criarUsuario(ResultSet resultSet) throws SQLException {
         Usuario usuario = new Usuario();
         usuario.setId(resultSet.getInt("id"));
@@ -92,7 +98,7 @@ public class UsuarioDAO {
 
         return usuario;
     }
-    
+
     public Usuario obterUsuarioPorNomeUsuario(String nomeUsuario) {
         try (PreparedStatement preparedStatement = conexao.prepareStatement("SELECT * FROM usuario WHERE nome_usuario = ?")) {
             preparedStatement.setString(1, nomeUsuario);
@@ -109,44 +115,63 @@ public class UsuarioDAO {
 
         return null;
     }
-    
-      public void atualizarStatusUsuario(int idUsuario, boolean ativo) {
+
+    public void atualizarStatusUsuario(int idUsuario, boolean ativo) {
         try {
             String sql = "UPDATE usuario SET ativo = ? WHERE id = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setBoolean(1, ativo);
             preparedStatement.setInt(2, idUsuario);
             preparedStatement.executeUpdate();
+            //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Usuario",
+                    Log.EventoLog.ATIVAR_DESATIVAR,
+                    false));
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao atualizar status do usuário", e);
         }
     }
-      
-      public void atualizarTipoUsuario(int idUsuario, String novoTipoUsuario) {
+
+    public void atualizarTipoUsuario(int idUsuario, String novoTipoUsuario) {
         try {
             String sql = "UPDATE usuario SET tipo_usuario = ? WHERE id = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, novoTipoUsuario);
             preparedStatement.setInt(2, idUsuario);
             preparedStatement.executeUpdate();
+            //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Usuario",
+                    Log.EventoLog.ALTERAR,
+                    false));
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao atualizar tipo de usuário", e);
         }
     }
-      public void marcarUsuarioComoDeletado(int idUsuario) {
+
+    public void marcarUsuarioComoDeletado(int idUsuario) {
         try {
             String sql = "UPDATE usuario SET deletado = true WHERE id = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setInt(1, idUsuario);
             preparedStatement.executeUpdate();
+            //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Usuario",
+                    Log.EventoLog.DELETAR,
+                    true));
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao marcar usuário como deletado", e);
         }
     }
-        public List<Usuario> listarUsuariosNaoDeletados() {
+
+    public List<Usuario> listarUsuariosNaoDeletados() {
         List<Usuario> usuarios = new ArrayList<>();
-        try (PreparedStatement preparedStatement = conexao.prepareStatement("SELECT * FROM usuario WHERE deletado =false  ORDER BY id DESC"  );
-             ResultSet resultSet = preparedStatement.executeQuery()) {
+        try (PreparedStatement preparedStatement = conexao.prepareStatement("SELECT * FROM usuario WHERE deletado =false  ORDER BY id DESC"); ResultSet resultSet = preparedStatement.executeQuery()) {
 
             while (resultSet.next()) {
                 Usuario usuario = criarUsuario(resultSet);
@@ -159,5 +184,5 @@ public class UsuarioDAO {
 
         return usuarios;
     }
-      
+
 }

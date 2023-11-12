@@ -19,7 +19,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Log;
 import model.Produto;
+import model.UsuarioLogado;
+import service.LogService;
 
 public class ProdutoDAO {
 
@@ -40,6 +43,13 @@ public class ProdutoDAO {
             preparedStatement.setString(5, produto.getObservacao());
             preparedStatement.setBoolean(6, produto.isAtivo());
             preparedStatement.executeUpdate();
+            
+             //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Produto",
+                    Log.EventoLog.CRIAR,
+                    false));
             return true;
         } catch (SQLException e) {
             System.out.println("Erro ::: " + e);
@@ -59,6 +69,12 @@ public class ProdutoDAO {
             preparedStatement.setBoolean(6, produto.isAtivo());
             preparedStatement.setInt(7, produto.getId());
             preparedStatement.executeUpdate();
+             //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Produto",
+                    Log.EventoLog.ALTERAR,
+                    false));
             return true;
         } catch (SQLException e) {
             System.out.println("Erro ::: " + e);
@@ -129,6 +145,12 @@ public class ProdutoDAO {
             preparedStatement.setBoolean(1, ativo);
             preparedStatement.setInt(2, id);
             preparedStatement.executeUpdate();
+             //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Produto",
+                    Log.EventoLog.ATIVAR_DESATIVAR,
+                    false));
         } catch (SQLException e) {
             System.out.println("Erro ::: " + e);
         }
@@ -140,6 +162,12 @@ public class ProdutoDAO {
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
+             //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Produto",
+                    Log.EventoLog.DELETAR,
+                    true));
         } catch (SQLException e) {
             e.printStackTrace();
         }
