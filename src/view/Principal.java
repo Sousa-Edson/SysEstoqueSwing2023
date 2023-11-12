@@ -41,6 +41,7 @@ import model.ProdutoTableModel;
 import model.Transacao;
 import model.TransacaoRelatorioTableModel;
 import model.TransacaoTableModel;
+import model.Usuario;
 import renderer.HoraCellRenderer;
 import renderer.LocalDateRenderer;
 import util.DataConverter;
@@ -77,6 +78,17 @@ public final class Principal extends javax.swing.JFrame {
         chamaPainel(1);
         carregaTabelaExpedicao(99);
         populaTransacao();
+    }
+    
+      public Principal(Usuario usuario) throws SQLException {
+        initComponents();
+        produtoController = new ProdutoController();
+        transacaoController = new TransacaoController();
+        clienteController = new ClienteController();
+        chamaPainel(1);
+        carregaTabelaExpedicao(99);
+        populaTransacao();
+        JOptionPane.showMessageDialog(null, usuario);
     }
 
     /**
