@@ -1202,6 +1202,9 @@ public final class Principal extends javax.swing.JFrame {
         jLabel19.setText("BACKUP");
         jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel19MouseEntered(evt);
             }
@@ -1235,7 +1238,7 @@ public final class Principal extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addGroup(pnConfiguracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnConfiguracoesUnidades, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE))
+                    .addComponent(pnConfiguracoesUnidades, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnConfiguracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnConfiguracoesNcm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2629,9 +2632,20 @@ public final class Principal extends javax.swing.JFrame {
             ListaUsuarioDialog listaUsuario = new ListaUsuarioDialog(this, rootPaneCheckingEnabled);
             listaUsuario.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(null, "Acesso negado!");
+            JOptionPane.showMessageDialog(null, "Você não tem permissão"
+                    + "!", "Acesso negado", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+        Object[] options = {"Sim", "Não"};
+        if (JOptionPane.showOptionDialog(null, "Deseja fazer um backup?",
+                "Backup", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
+                null, options, options[1]) == 0) {
+            System.out.println("backup");
+
+        }
+    }//GEN-LAST:event_jLabel19MouseClicked
 
     /**
      * @param args the command line arguments

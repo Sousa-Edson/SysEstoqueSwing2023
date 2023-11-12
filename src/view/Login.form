@@ -60,7 +60,7 @@
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="ntnLogar" min="-2" pref="194" max="-2" attributes="0"/>
+                              <Component id="btnLogar" min="-2" pref="194" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnCadastrar" max="32767" attributes="0"/>
                           </Group>
@@ -89,7 +89,7 @@
                   <Component id="txtSenha" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ntnLogar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLogar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -132,6 +132,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="gabriel"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtUsuarioKeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -139,13 +142,16 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtSenha">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSenhaKeyPressed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ntnLogar">
+        <Component class="javax.swing.JButton" name="btnLogar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Logar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ntnLogarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
