@@ -14,17 +14,30 @@ import javax.swing.JOptionPane;
  * @author edson
  */
 public class ConexaoPostgres {
-     private static final String URL = "jdbc:postgresql://localhost:5432/SysEstoqueSwing2023";
-    private static final String USUARIO =  "admin"; // admin // postgres
+
+    private static final String URL = "jdbc:postgresql://localhost:5432/SysEstoqueSwing2023";
+    private static final String USUARIO = "admin"; // admin // postgres
     private static final String SENHA = "123456"; //123456 // 1
-    
-      public static Connection obterConexao() throws SQLException {
+
+    public static Connection obterConexao() throws SQLException {
         try {
             return DriverManager.getConnection(URL, USUARIO, SENHA);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ERRO: " + e);
+            System.out.println("ERRO:\n" + e);
+//            JOptionPane.showMessageDialog(null, "ERRO: " + e);
         }
         return null;
     }
-    
+
+    public static void fecharConexao(Connection conexao) {
+        if (conexao != null) {
+            try {
+//                System.out.println("fechando");
+                conexao.close();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Erro ao fechar a conexão: " + e.getMessage());
+            }
+        }
+    }
+
 }

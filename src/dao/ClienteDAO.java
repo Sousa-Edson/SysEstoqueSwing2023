@@ -24,15 +24,17 @@ import model.UsuarioLogado;
 import service.LogService;
 
 public class ClienteDAO {
-
+    
     private Connection conexao;
-
+    
     public ClienteDAO() throws SQLException {
-        conexao = ConexaoPostgres.obterConexao(); // Substitua pela sua maneira de obter uma conexão
-    }
+//        conexao = ConexaoPostgres.obterConexao(); // Substitua pela sua maneira de obter uma conexão
 
+    }
+    
     public boolean adicionarCliente(Cliente cliente) {
         try {
+            conexao =ConexaoPostgres.obterConexao();
             String sql = "INSERT INTO cliente (tipo_cliente, cnpj, razao_social, nome_fantasia, "
                     + "inscricao_estadual, inscricao_municipal, endereco, contato, "
                     + "responsavel_legal, tipo_empresa, ativo) "
@@ -50,23 +52,24 @@ public class ClienteDAO {
             preparedStatement.setInt(10, cliente.getTipoEmpresa().getId());
             preparedStatement.setBoolean(11, cliente.isAtivo());
             preparedStatement.executeUpdate();
-            
-             //salvando log
+
+            //salvando log
             LogService.salvarLog(new Log(
                     UsuarioLogado.getUsuarioLogado().getId(),
                     "Cliente",
                     Log.EventoLog.CRIAR,
                     false));
-            
+            conexao.close();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
     }
-
+    
     public boolean atualizarCliente(Cliente cliente) {
         try {
+            conexao =ConexaoPostgres.obterConexao();
             String sql = "UPDATE cliente SET tipo_cliente = ?, cnpj = ?, razao_social = ?, "
                     + "nome_fantasia = ?, inscricao_estadual = ?, inscricao_municipal = ?, "
                     + "endereco = ?, contato = ?, responsavel_legal = ?, "
@@ -85,34 +88,39 @@ public class ClienteDAO {
             preparedStatement.setBoolean(11, cliente.isAtivo());
             preparedStatement.setInt(12, cliente.getId());
             preparedStatement.executeUpdate();
-            
-             //salvando log
+
+            //salvando log
             LogService.salvarLog(new Log(
                     UsuarioLogado.getUsuarioLogado().getId(),
                     "Cliente",
                     Log.EventoLog.ALTERAR,
                     false));
+            conexao.close();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
     }
-
+    
     public void excluirCliente(int id) {
         try {
+            conexao =ConexaoPostgres.obterConexao();
             String sql = "DELETE FROM cliente WHERE id = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
+            conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
+    
     public List<Cliente> listarClientes() {
+        
         List<Cliente> clientes = new ArrayList<>();
         try {
+            conexao =ConexaoPostgres.obterConexao();
             String sql = "SELECT id, tipo_cliente, cnpj, razao_social, nome_fantasia, "
                     + "inscricao_estadual, inscricao_municipal, endereco, contato, "
                     + "responsavel_legal, tipo_empresa "
@@ -131,21 +139,25 @@ public class ClienteDAO {
                 String contato = resultSet.getString("contato");
                 String responsavelLegal = resultSet.getString("responsavel_legal");
                 TipoEmpresa tipoEmpresa = TipoEmpresa.getById(resultSet.getInt("tipo_empresa"));
-
+                
                 Cliente cliente = new Cliente(id, tipoCliente, cnpj, razaoSocial, nomeFantasia,
                         inscricaoEstadual, inscricaoMunicipal, endereco, contato, responsavelLegal, tipoEmpresa);
-
+                
                 clientes.add(cliente);
+                conexao.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return clientes;
     }
-
+    
     public Cliente obterClientePorId(int id) {
+        
         Cliente cliente = null;
         try {
+            conexao =ConexaoPostgres.obterConexao();
+//            Connection conn = ConexaoPostgres.obterConexao();
             String sql = "SELECT tipo_cliente, cnpj, razao_social, nome_fantasia, "
                     + "inscricao_estadual, inscricao_municipal, endereco, contato, "
                     + "responsavel_legal, tipo_empresa, deletado,ativo "
@@ -166,33 +178,40 @@ public class ClienteDAO {
                 TipoEmpresa tipoEmpresa = TipoEmpresa.getById(resultSet.getInt("tipo_empresa"));
                 boolean deletado = resultSet.getBoolean("deletado");
                 boolean ativo = resultSet.getBoolean("ativo");
-
+                
                 cliente = new Cliente(id, tipoCliente, cnpj, razaoSocial, nomeFantasia,
                         inscricaoEstadual, inscricaoMunicipal, endereco, contato, responsavelLegal, tipoEmpresa, ativo);
+                preparedStatement.close();
+                resultSet.close();
+                conexao.close();
+                ConexaoPostgres.fecharConexao(conexao);
             }
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
         return cliente;
     }
-
+    
     public void marcarClienteComoDeletado(int id) {
         try {
+            conexao =ConexaoPostgres.obterConexao();
             String sql = "UPDATE cliente SET deletado = true WHERE id = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
-            
-            
-             //salvando log
+
+            //salvando log
             LogService.salvarLog(new Log(
                     UsuarioLogado.getUsuarioLogado().getId(),
                     "Cliente",
                     Log.EventoLog.DELETAR,
                     true));
+            conexao.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
+    
 }
