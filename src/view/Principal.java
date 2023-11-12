@@ -751,24 +751,9 @@ public final class Principal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Descrição", "Unidade", "Valor", "NCM", "Observação", "Ativo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         tbProduto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tbProduto.getTableHeader().setReorderingAllowed(false);
         tbProduto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -782,12 +767,6 @@ public final class Principal extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tbProduto);
-        if (tbProduto.getColumnModel().getColumnCount() > 0) {
-            tbProduto.getColumnModel().getColumn(3).setResizable(false);
-            tbProduto.getColumnModel().getColumn(4).setResizable(false);
-            tbProduto.getColumnModel().getColumn(5).setResizable(false);
-            tbProduto.getColumnModel().getColumn(6).setResizable(false);
-        }
 
         btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/icons8-adicionar-30.png"))); // NOI18N
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -1243,7 +1222,7 @@ public final class Principal extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addGroup(pnConfiguracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnConfiguracoesUnidades, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE))
+                    .addComponent(pnConfiguracoesUnidades, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnConfiguracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnConfiguracoesNcm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
