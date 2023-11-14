@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/edson/Projetos/sysEstoqueSwing2023/src/view/Principal.java</file>
-            <file>file:/home/edson/Projetos/sysEstoqueSwing2023/src/view/Login.java</file>
+            <file>file:/home/edson/NetBeansProjects/sysEstoqueSwing2023/src/backup/DockerTest.java</file>
+            <file>file:/home/edson/NetBeansProjects/sysEstoqueSwing2023/src/backup/DockerCommandExecution.java</file>
+            <file>file:/home/edson/NetBeansProjects/sysEstoqueSwing2023/src/backup/BackupDatabase.java</file>
+            <file>file:/home/edson/NetBeansProjects/sysEstoqueSwing2023/src/backup/BackupPostgres.java</file>
+            <file>file:/home/edson/NetBeansProjects/sysEstoqueSwing2023/src/backup/Rascunho.java</file>
         </group>
     </open-files>
 </project-private>
