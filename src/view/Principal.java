@@ -2642,8 +2642,9 @@ public final class Principal extends javax.swing.JFrame {
         if (JOptionPane.showOptionDialog(null, "Deseja fazer um backup?",
                 "Backup", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
                 null, options, options[1]) == 0) {
+            BackupGUI backupGUI = new BackupGUI();
+            backupGUI.setVisible(true);
             System.out.println("backup");
-
         }
     }//GEN-LAST:event_jLabel19MouseClicked
 

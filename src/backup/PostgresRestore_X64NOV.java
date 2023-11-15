@@ -12,10 +12,10 @@ import javax.swing.JOptionPane;
 public class PostgresRestore_X64NOV {
 
     JFileChooser open;
-    final List<String> comandos = new ArrayList<String>();
+    final List<String> comandos = new ArrayList<>();
     int flag = 0;
 
-    public PostgresRestore_X64NOV() {
+    public void PostgresRestore_X64NOV() {
         File file = new File("C:\\BKPBANCO");
         if (!file.exists()) {
             JOptionPane.showMessageDialog(null, "BKPBANCO ainda não existente!\nFavor clicar em criar pasta!");
