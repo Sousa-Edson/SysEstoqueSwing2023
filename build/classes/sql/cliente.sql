@@ -19,6 +19,14 @@ ALTER TABLE cliente
 ADD COLUMN ativo BOOLEAN DEFAULT TRUE;
 
 
+ALTER TABLE public.cliente
+ADD COLUMN cep varchar(10) NULL DEFAULT '',
+ADD COLUMN complemento varchar(255) NULL DEFAULT '',
+ADD COLUMN bairro varchar(100) NULL DEFAULT '',
+ADD COLUMN cidade varchar(100) NULL DEFAULT '';
+
+
+
 SELECT * FROM cliente; 
  
  
