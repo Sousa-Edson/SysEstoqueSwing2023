@@ -68,6 +68,7 @@ public class EmpresaDialog extends javax.swing.JDialog {
         txtComplemento.setText(cliente.getComplemento());
         txtBairro.setText(cliente.getBairro());
         txtCidade.setText(cliente.getCidade());
+        System.out.println("cidade em dialog::"+cliente.getCidade());
 
     }
 
