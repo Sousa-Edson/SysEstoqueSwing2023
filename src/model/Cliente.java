@@ -74,6 +74,11 @@ public class Cliente {
         this.responsavelLegal = responsavelLegal;
         this.tipoEmpresa = tipoEmpresa;
         this.ativo = ativo;
+        
+        this.cep = cep;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
     }
 
     public Cliente(int id, TipoCliente tipoCliente, String cnpj, String razaoSocial, String nomeFantasia, String inscricaoEstadual,

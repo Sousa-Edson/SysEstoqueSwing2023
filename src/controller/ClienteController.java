@@ -46,7 +46,7 @@ public class ClienteController {
         return clienteDAO.listarClientes();
     }
 
-    public Cliente obterClientePorId(int id) {
+    public Cliente obterClientePorId(int id) { 
         return clienteDAO.obterClientePorId(id);
     }
 

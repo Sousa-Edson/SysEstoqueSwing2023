@@ -202,8 +202,7 @@ public class ClienteDAO {
                  String cep = resultSet.getString("cep");
                 String complemento = resultSet.getString("complemento");
                 String bairro = resultSet.getString("bairro");
-                String cidade = resultSet.getString("cidade");
-
+                String cidade = resultSet.getString("cidade"); 
                 cliente = new Cliente(id, tipoCliente, cnpj, razaoSocial, nomeFantasia,
                         inscricaoEstadual, inscricaoMunicipal, endereco, contato, responsavelLegal, tipoEmpresa, ativo,cep,complemento,bairro,cidade);
                 preparedStatement.close();
