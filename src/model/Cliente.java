@@ -39,7 +39,8 @@ public class Cliente {
     }
 
     public Cliente(int id, TipoCliente tipoCliente, String cnpj, String razaoSocial, String nomeFantasia, String inscricaoEstadual,
-            String inscricaoMunicipal, String endereco, String contato, String responsavelLegal, TipoEmpresa tipoEmpresa) {
+            String inscricaoMunicipal, String endereco, String contato, String responsavelLegal, TipoEmpresa tipoEmpresa, String cep,
+            String complemento, String bairro, String cidade) {
         this.id = id;
         this.tipoCliente = tipoCliente;
         this.cnpj = cnpj;
@@ -51,9 +52,16 @@ public class Cliente {
         this.contato = contato;
         this.responsavelLegal = responsavelLegal;
         this.tipoEmpresa = tipoEmpresa;
+
+        this.cep = cep;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
     }
 
-    public Cliente(int id, TipoCliente tipoCliente, String cnpj, String razaoSocial, String nomeFantasia, String inscricaoEstadual, String inscricaoMunicipal, String endereco, String contato, String responsavelLegal, TipoEmpresa tipoEmpresa, boolean ativo) {
+    public Cliente(int id, TipoCliente tipoCliente, String cnpj, String razaoSocial, String nomeFantasia, String inscricaoEstadual,
+            String inscricaoMunicipal, String endereco, String contato, String responsavelLegal, TipoEmpresa tipoEmpresa, boolean ativo,
+            String cep, String complemento, String bairro, String cidade) {
         this.id = id;
         this.tipoCliente = tipoCliente;
         this.cnpj = cnpj;
@@ -68,7 +76,9 @@ public class Cliente {
         this.ativo = ativo;
     }
 
-    public Cliente(int id, TipoCliente tipoCliente, String cnpj, String razaoSocial, String nomeFantasia, String inscricaoEstadual, String inscricaoMunicipal, String endereco, String cep, String complemento, String bairro, String cidade, String contato, String responsavelLegal, TipoEmpresa tipoEmpresa, boolean deletado) {
+    public Cliente(int id, TipoCliente tipoCliente, String cnpj, String razaoSocial, String nomeFantasia, String inscricaoEstadual,
+            String inscricaoMunicipal, String endereco, String cep, String complemento, String bairro, String cidade, String contato,
+            String responsavelLegal, TipoEmpresa tipoEmpresa, boolean deletado) {
         this.id = id;
         this.tipoCliente = tipoCliente;
         this.cnpj = cnpj;
@@ -77,17 +87,18 @@ public class Cliente {
         this.inscricaoEstadual = inscricaoEstadual;
         this.inscricaoMunicipal = inscricaoMunicipal;
         this.endereco = endereco;
-        this.cep = cep;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cidade = cidade;
+
         this.contato = contato;
         this.responsavelLegal = responsavelLegal;
         this.tipoEmpresa = tipoEmpresa;
         this.deletado = deletado;
         this.ativo = ativo;
+
+        this.cep = cep;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
     }
-    
 
     // Outros métodos, se necessário...
     public Cliente(int id) {

@@ -137,6 +137,7 @@ public class ClienteDAO {
             String sql = "SELECT id, tipo_cliente, cnpj, razao_social, nome_fantasia, "
                     + "inscricao_estadual, inscricao_municipal, endereco, contato, "
                     + "responsavel_legal, tipo_empresa "
+                    + ",cep, complemento, bairro, cidade "
                     + "FROM cliente WHERE deletado = false ORDER BY id ASC";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -153,8 +154,13 @@ public class ClienteDAO {
                 String responsavelLegal = resultSet.getString("responsavel_legal");
                 TipoEmpresa tipoEmpresa = TipoEmpresa.getById(resultSet.getInt("tipo_empresa"));
 
+                String cep = resultSet.getString("cep");
+                String complemento = resultSet.getString("complemento");
+                String bairro = resultSet.getString("bairro");
+                String cidade = resultSet.getString("cidade");
+
                 Cliente cliente = new Cliente(id, tipoCliente, cnpj, razaoSocial, nomeFantasia,
-                        inscricaoEstadual, inscricaoMunicipal, endereco, contato, responsavelLegal, tipoEmpresa);
+                        inscricaoEstadual, inscricaoMunicipal, endereco, contato, responsavelLegal, tipoEmpresa, cep, complemento, bairro, cidade);
 
                 clientes.add(cliente);
                 conexao.close();
@@ -174,6 +180,7 @@ public class ClienteDAO {
             String sql = "SELECT tipo_cliente, cnpj, razao_social, nome_fantasia, "
                     + "inscricao_estadual, inscricao_municipal, endereco, contato, "
                     + "responsavel_legal, tipo_empresa, deletado,ativo "
+                    + ",cep, complemento, bairro, cidade "
                     + "FROM cliente WHERE id = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setInt(1, id);
@@ -191,9 +198,14 @@ public class ClienteDAO {
                 TipoEmpresa tipoEmpresa = TipoEmpresa.getById(resultSet.getInt("tipo_empresa"));
                 boolean deletado = resultSet.getBoolean("deletado");
                 boolean ativo = resultSet.getBoolean("ativo");
+                
+                 String cep = resultSet.getString("cep");
+                String complemento = resultSet.getString("complemento");
+                String bairro = resultSet.getString("bairro");
+                String cidade = resultSet.getString("cidade");
 
                 cliente = new Cliente(id, tipoCliente, cnpj, razaoSocial, nomeFantasia,
-                        inscricaoEstadual, inscricaoMunicipal, endereco, contato, responsavelLegal, tipoEmpresa, ativo);
+                        inscricaoEstadual, inscricaoMunicipal, endereco, contato, responsavelLegal, tipoEmpresa, ativo,cep,complemento,bairro,cidade);
                 preparedStatement.close();
                 resultSet.close();
                 conexao.close();

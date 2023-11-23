@@ -64,6 +64,11 @@ public class EmpresaDialog extends javax.swing.JDialog {
 
         ckAtivaEmpresa.setSelected(cliente.isAtivo());
 
+        txtCep.setText(cliente.getCep());
+        txtComplemento.setText(cliente.getComplemento());
+        txtBairro.setText(cliente.getBairro());
+        txtCidade.setText(cliente.getCidade());
+
     }
 
     /**
@@ -515,7 +520,7 @@ public class EmpresaDialog extends javax.swing.JDialog {
                     nomeFantasia,
                     txtIncricaoEstadual.getText(),
                     txtIncricaoMunicipal.getText(),
-                    endereco,cep,complemento,bairro,cidade,
+                    endereco, cep, complemento, bairro, cidade,
                     txtContato.getText(), responsavelLegal,
                     (TipoEmpresa) cbTipoEmpresa.getSelectedItem(),
                     ckAtivaEmpresa.isSelected()))) {
