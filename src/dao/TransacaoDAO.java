@@ -99,12 +99,12 @@ public class TransacaoDAO {
             preparedStatement.setString(2, transacao.getMotorista());
             preparedStatement.setInt(3, transacao.getId());
             preparedStatement.executeUpdate();
-             //salvando log
-                LogService.salvarLog(new Log(
-                        UsuarioLogado.getUsuarioLogado().getId(),
-                        "Transacao",
-                        Log.EventoLog.ALTERAR,
-                        false));
+            //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Transacao",
+                    Log.EventoLog.ALTERAR,
+                    false));
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -126,16 +126,54 @@ public class TransacaoDAO {
     public List<Transacao> listarTransacoes() {
         List<Transacao> transacoes = new ArrayList<>();
         try {
-            String sql = "SELECT id, tipo, cfop, cliente, nota, chave, data_transacao,"
-                    + " hora_transacao, informacoes_complementares, nome_motorista,status_nota FROM transacao WHERE deletado = false "
-                    + "ORDER BY id DESC";
+            String sql = "SELECT \n"
+                    + "    t.id, \n"
+                    + "    t.tipo, \n"
+                    + "    t.cfop, \n"
+                    + "    t.cliente, \n"
+                    + "    t.nota, \n"
+                    + "    t.chave, \n"
+                    + "    t.data_transacao, \n"
+                    + "    t.hora_transacao, \n"
+                    + "    t.informacoes_complementares, \n"
+                    + "    t.deletado, \n"
+                    + "    t.nome_motorista, \n"
+                    + "    t.status_nota, \n"
+                    + "    t.idantigo,\n"
+                    + "    c.codigo,\n"
+                    + "    c.descricao,\n"
+                    + "    cl.tipo_cliente,\n"
+                    + "    cl.cnpj,\n"
+                    + "    cl.razao_social,\n"
+                    + "    cl.nome_fantasia,\n"
+                    + "    cl.inscricao_estadual,\n"
+                    + "    cl.inscricao_municipal,\n"
+                    + "    cl.endereco,\n"
+                    + "    cl.contato,\n"
+                    + "    cl.responsavel_legal,\n"
+                    + "    cl.tipo_empresa,\n"
+                    + "    cl.deletado AS deletado_cliente,\n"
+                    + "    cl.idantigo AS idantigo_cliente,\n"
+                    + "    cl.ativo AS ativo_cliente,\n"
+                    + "    cl.cep,\n"
+                    + "    cl.complemento,\n"
+                    + "    cl.bairro,\n"
+                    + "    cl.cidade\n"
+                    + "FROM \n"
+                    + "    public.transacao t\n"
+                    + "    INNER JOIN public.cfop c ON t.cfop = c.id\n"
+                    + "    INNER JOIN public.cliente cl ON t.cliente = cl.id\n"
+                    + "ORDER BY \n"
+                    + "    t.id desc;";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 int tipo = resultSet.getInt("tipo");
                 int cfop = resultSet.getInt("cfop");
+                String codigo = resultSet.getString("descricao");
                 int cliente = resultSet.getInt("cliente");
+                String nome_fantasia = resultSet.getString("nome_fantasia");
                 String nota = resultSet.getString("nota");
                 String chave = resultSet.getString("chave");
                 Date dataTransacao = resultSet.getDate("data_transacao");
@@ -148,13 +186,14 @@ public class TransacaoDAO {
 
                 Transacao transacao = new Transacao(id,
                         TipoNota.getById(tipo),
-                        new CFOP(cfop),
-                        new Cliente(cliente),
+                        new CFOP(cfop, codigo),
+                        new Cliente(cliente, nome_fantasia),
                         nota, chave,
                         dataTransacao,
                         horaTransacao,
                         informacoesComplementares, motorista, StatusNota.getById(status),
                         Item);
+//                 gean luiz
                 transacoes.add(transacao);
             }
         } catch (SQLException e) {
@@ -209,12 +248,12 @@ public class TransacaoDAO {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
             marcarItensDaTransacaoComoDeletada(id);
-             //salvando log
-                LogService.salvarLog(new Log(
-                        UsuarioLogado.getUsuarioLogado().getId(),
-                        "Transacao",
-                        Log.EventoLog.DELETAR,
-                        true));
+            //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Transacao",
+                    Log.EventoLog.DELETAR,
+                    true));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -316,13 +355,13 @@ public class TransacaoDAO {
 
             int linhasAfetadas = preparedStatement.executeUpdate();
 
-             //salvando log
-                LogService.salvarLog(new Log(
-                        UsuarioLogado.getUsuarioLogado().getId(),
-                        "Transacao",
-                        Log.EventoLog.ALTERAR,
-                        false));
-            
+            //salvando log
+            LogService.salvarLog(new Log(
+                    UsuarioLogado.getUsuarioLogado().getId(),
+                    "Transacao",
+                    Log.EventoLog.ALTERAR,
+                    false));
+
             return linhasAfetadas > 0; // Retorna verdadeiro se a atualização for bem-sucedida (uma ou mais linhas foram atualizadas)
         } catch (SQLException e) {
             e.printStackTrace();

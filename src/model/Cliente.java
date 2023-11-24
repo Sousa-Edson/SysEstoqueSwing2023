@@ -110,6 +110,12 @@ public class Cliente {
         this.id = id;
     }
 
+    public Cliente(int id, String nomeFantasia) {
+        this.id = id;
+        this.nomeFantasia = nomeFantasia;
+    }
+    
+
     public int getId() {
         return id;
     }

@@ -36,14 +36,11 @@ public class ExpedicaoController {
     }
 
     public List<Transacao> listarTransacoesComFiltro(String busca, int status) {
-        ClienteController clienteController = new ClienteController();
-        CFOPController cfopController = new CFOPController();
-
+         
         List<Transacao> transacoes = new ArrayList<>();
         for (Transacao transacao : transacaoDAO.listarTransacoes()) {
-            if (transacao.getNota().contains(busca) || DataConverter.dataParaString("" + transacao.getData()).contains(busca)) {
-                transacao.setCliente(clienteController.obterClientePorId(transacao.getCliente().getId()));
-                transacao.setCfop(cfopController.obterCFOPPorId(transacao.getCfop().getId()));
+            if (transacao.getNota().contains(busca) ||transacao.getCliente().getNomeFantasia().contains(busca) || DataConverter.dataParaString("" + transacao.getData()).contains(busca)) {
+                System.out.println("empresa::"+transacao.getCliente().getNomeFantasia());
                 if (transacao.getTipo().getValor() == 1) {
                     if (transacao.getStatus().getCodigo() == status) {
                         transacoes.add(transacao);

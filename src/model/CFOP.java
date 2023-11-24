@@ -23,6 +23,11 @@ public class CFOP {
     public CFOP(int id) {
         this.id = id;
     }
+
+    public CFOP(int id, String codigo) {
+        this.id = id;
+        this.codigo = codigo;
+    }
     
 
     public CFOP(int id, String codigo, String descricao, boolean ativo) {

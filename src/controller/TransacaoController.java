@@ -112,14 +112,9 @@ public class TransacaoController {
     }
 
     public List<Transacao> listarTransacoesComFiltro(String busca, int tipoBusca) {
-        ClienteController clienteController = new ClienteController();
-        CFOPController cfopController = new CFOPController();
-
         List<Transacao> transacoes = new ArrayList<>();
         for (Transacao transacao : transacaoDAO.listarTransacoes()) {
-            if (transacao.getNota().contains(busca) || DataConverter.dataParaString("" + transacao.getData()).contains(busca)) {
-                transacao.setCliente(clienteController.obterClientePorId(transacao.getCliente().getId()));
-                transacao.setCfop(cfopController.obterCFOPPorId(transacao.getCfop().getId()));
+            if (transacao.getNota().contains(busca) || transacao.getCliente().getNomeFantasia().contains(busca.toUpperCase()) || DataConverter.dataParaString("" + transacao.getData()).contains(busca)) {
                 switch (tipoBusca) {
                     case 1:
                         if (transacao.getTipo().getValor() == 0) {
