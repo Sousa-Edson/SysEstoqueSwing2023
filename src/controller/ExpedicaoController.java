@@ -40,7 +40,6 @@ public class ExpedicaoController {
         List<Transacao> transacoes = new ArrayList<>();
         for (Transacao transacao : transacaoDAO.listarTransacoes()) {
             if (transacao.getNota().contains(busca) ||transacao.getCliente().getNomeFantasia().contains(busca) || DataConverter.dataParaString("" + transacao.getData()).contains(busca)) {
-                System.out.println("empresa::"+transacao.getCliente().getNomeFantasia());
                 if (transacao.getTipo().getValor() == 1) {
                     if (transacao.getStatus().getCodigo() == status) {
                         transacoes.add(transacao);
