@@ -39,6 +39,12 @@ public class Produto {
         this.id = id;
     }
 
+    public Produto(String descricao,BigDecimal valor,Unidade unidade) {
+        this.descricao = descricao;
+         this.valor = valor;
+        this.unidade = unidade;
+    }
+
     
 
     // Getters e Setters

@@ -88,6 +88,14 @@ public class Transacao {
         this.id = id;
     }
 
+    public Transacao(int id, TipoNota tipo, String nota, Cliente cliente, Date data) {
+        this.id = id;
+        this.tipo = tipo;
+        this.nota = nota;
+        this.cliente = cliente;
+        this.data = data;
+    }
+
     // Resto da classe (Getters e Setters)
     public int getId() {
         return id;

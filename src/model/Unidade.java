@@ -22,6 +22,10 @@ public class Unidade {
         this.ativo = ativo;
     }
 
+    public Unidade(String sigla) {
+        this.sigla = sigla;
+    }
+
     // Getters e Setters
     public int getId() {
         return id;

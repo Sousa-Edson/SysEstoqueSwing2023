@@ -105,6 +105,11 @@ public class Cliente {
         this.cidade = cidade;
     }
 
+    public Cliente(String nomeFantasia) {
+        this.nomeFantasia = nomeFantasia;
+    }
+    
+
     // Outros métodos, se necessário...
     public Cliente(int id) {
         this.id = id;

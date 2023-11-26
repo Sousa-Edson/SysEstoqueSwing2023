@@ -2551,17 +2551,18 @@ public final class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_tbRelatorioKeyReleased
 
     private void tbRelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbRelatorioMouseClicked
-        int rowIndex = tbRelatorio.getSelectedRow();
-        int idRelatorio = (int) tbRelatorio.getValueAt(rowIndex, 0);
+        if (evt.getClickCount() == 2) {
+            int rowIndex = tbRelatorio.getSelectedRow();
+            int idRelatorio = (int) tbRelatorio.getValueAt(rowIndex, 0);
 
-        for (Item listaDeIten : listaDeItens) {
-            if (listaDeIten.getId() == idRelatorio) {
-                exibeTransacao(listaDeIten.getTransacao().getId());
-                mostraCamposTransacao(false);
-                break;
+            for (Item listaDeIten : listaDeItens) {
+                if (listaDeIten.getId() == idRelatorio) {
+                    exibeTransacao(listaDeIten.getTransacao().getId());
+                    mostraCamposTransacao(false);
+                    break;
+                }
             }
         }
-
     }//GEN-LAST:event_tbRelatorioMouseClicked
 
     private void txtBuscarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarRelatorioActionPerformed

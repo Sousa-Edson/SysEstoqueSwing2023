@@ -26,6 +26,7 @@ import model.Item;
 import model.Log;
 import model.Produto;
 import model.Transacao;
+import model.Unidade;
 import model.UsuarioLogado;
 import service.LogService;
 
@@ -372,22 +373,48 @@ public class TransacaoDAO {
     public List<Item> listarTodosItensAtivos() {
         List<Item> itens = new ArrayList<>();
         try {
-            String sql = "SELECT id, produto_id, complemento, quantidade, tipo, transacao_id, "
-                    + "deletado FROM item WHERE deletado = false ORDER BY id DESC ";
+//            String sql = "SELECT id, produto_id, complemento, quantidade, tipo, transacao_id, "
+//                    + "deletado FROM item WHERE deletado = false ORDER BY id DESC ";
+            String sql = "SELECT \n"
+                    + "    t.id AS ID,\n"
+                    + "    t.tipo AS Tipo_Nota,\n"
+                    + "    t.data_transacao AS Data,\n"
+                    + "    t.nota AS Nota, \n"
+                    + "    c.nome_fantasia,\n"
+                    + "    p.descricao AS Produto,\n"
+                    + "    i.complemento AS Complemento,\n"
+                    + "    i.quantidade AS Quantidade, \n"
+                    + "    u.sigla,\n"
+                    + "    p.valor AS Valor\n"
+                    + "FROM \n"
+                    + "    item i\n"
+                    + "    INNER JOIN produto p ON i.produto_id = p.id\n"
+                    + "    INNER JOIN transacao t ON i.transacao_id = t.id\n"
+                    + "    INNER JOIN cliente c ON t.cliente  = c.id\n"
+                    + "    INNER JOIN unidade u ON p.unidade_id  = u.id\n"
+                    + "WHERE \n"
+                    + "    i.deletado = false\n"
+                    + "ORDER BY \n"
+                    + "    t.id DESC;";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
-                int produto = resultSet.getInt("produto_id");
+                String produto = resultSet.getString("Produto");
                 String complemento = resultSet.getString("complemento");
                 BigDecimal bigDecimal = resultSet.getBigDecimal("quantidade");
-                int tipoNota = resultSet.getInt("tipo");
-                boolean deletado = resultSet.getBoolean("deletado");
-                int transacao = resultSet.getInt("transacao_id");
+                BigDecimal valor = resultSet.getBigDecimal("Valor");
+                int tipoNota = resultSet.getInt("Tipo_Nota");
+                String nota = resultSet.getString("Nota");
+                int transacao = resultSet.getInt("ID");
+                String cliente = resultSet.getString("nome_fantasia");
+                String unidade = resultSet.getString("sigla");
                 List<Item> Item = null;
+                Date dataTransacao = resultSet.getDate("Data");
 
-                Item item = new Item(id, new Produto(produto), complemento,
-                        bigDecimal, TipoNota.getById(tipoNota), new Transacao(transacao));
+                Item item = new Item(id, new Produto(produto, valor, new Unidade(unidade)), complemento,
+                        bigDecimal, TipoNota.getById(tipoNota), new Transacao(transacao, TipoNota.getById(tipoNota),
+                        nota, new Cliente(cliente), dataTransacao));
                 itens.add(item);
             }
         } catch (SQLException e) {

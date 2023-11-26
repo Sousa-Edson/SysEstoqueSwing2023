@@ -145,18 +145,18 @@ public class TransacaoController {
 
     public List<Item> listarTodosItensAtivos(String busca, int tipoBusca) {
         List<Item> itensRelatorio = new ArrayList<>();
-        ProdutoController produtoController = null;
-        TransacaoController transacaoController = null;
-        try {
-            produtoController = new ProdutoController();
-            transacaoController = new TransacaoController();
-        } catch (SQLException ex) {
-            Logger.getLogger(TransacaoController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        ProdutoController produtoController = null;
+//        TransacaoController transacaoController = null;
+//        try {
+//////            produtoController = new ProdutoController();
+//            transacaoController = new TransacaoController();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(TransacaoController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         for (Item item : transacaoDAO.listarTodosItensAtivos()) {
-            item.setProduto(produtoController.obterProdutoPorId(item.getProduto().getId()));
-            item.setTransacao(transacaoController.obterTransacaoPorId(item.getTransacao().getId()));
-
+//            item.setProduto(produtoController.obterProdutoPorId(item.getProduto().getId()));
+//            item.setTransacao(transacaoController.obterTransacaoPorId(item.getTransacao().getId()));
+//
             if (item.getTransacao().getNota().contains(busca)
                     || DataConverter.dataParaString("" + item.getTransacao().getData()).contains(busca)
                     || item.getProduto().getDescricao().contains(busca.toUpperCase())
@@ -178,6 +178,7 @@ public class TransacaoController {
                 }
             }
         }
+        
         return itensRelatorio;
     }
 }
