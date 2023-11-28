@@ -56,6 +56,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("LOGIN");
 
+        btnCadastrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +66,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel7.setText("Usuário");
 
-        txtUsuario.setText("gabriel");
+        txtUsuario.setText("edson");
         txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtUsuarioKeyPressed(evt);
@@ -80,6 +81,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        btnLogar.setBackground(new java.awt.Color(51, 255, 51));
+        btnLogar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnLogar.setText("Logar");
         btnLogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
