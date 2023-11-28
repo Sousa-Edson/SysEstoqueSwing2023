@@ -89,7 +89,7 @@ public final class Principal extends javax.swing.JFrame {
         clienteController = new ClienteController();
         chamaPainel(1);
         carregaTabelaExpedicao(99);
-        populaTransacao();
+//        populaTransacao();
 //        JOptionPane.showMessageDialog(null, usuario);
     }
 
@@ -3098,7 +3098,7 @@ public final class Principal extends javax.swing.JFrame {
     }
 
     public void carregaQuantidadeDeTransacao() {
-        System.out.println("carregaTabelaExpedicao");
+        System.out.println("carregaQuantidadeDeTransacao");
         ExpedicaoController expedicaoController;
         Expedicao expedicao;
         try {

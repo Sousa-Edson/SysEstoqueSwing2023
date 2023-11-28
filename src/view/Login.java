@@ -162,6 +162,7 @@ public class Login extends javax.swing.JFrame {
         UsuarioController usuarioController = new UsuarioController();
         Usuario usuario = usuarioController.autenticarUsuario(txtUsuario.getText(), txtSenha.getText());
         if (usuario != null) {
+             JOptionPane.showMessageDialog(null, "Bem vindo "+usuario.getNome());
             Principal principal;
 
             try {
