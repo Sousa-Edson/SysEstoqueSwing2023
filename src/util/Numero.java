@@ -23,11 +23,12 @@ public class Numero {
     public static String deStringForBigDecimal(String valor) {
         FORMATO.setMinimumFractionDigits(3);
         BigDecimal bg = new BigDecimal(valor);
-        return FORMATO.format(bg).trim().replace(".", ",");
+//                return FORMATO.format(bg).trim().replace(".", ",");
+        return FORMATO.format(bg).trim();
     }
-    
-    public static String deBigDecimalForString(String valor) { 
-        System.out.println("v++"+valor);
+
+    public static String deBigDecimalForString(String valor) {
+        System.out.println("v++" + valor);
         return FORMATO.format(valor).trim().replace(".", "").replace(",", ".");
     }
 

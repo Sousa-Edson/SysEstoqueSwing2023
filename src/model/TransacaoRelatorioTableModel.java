@@ -62,6 +62,7 @@ public class TransacaoRelatorioTableModel extends AbstractTableModel {
                 return item.getComplemento(); // Supondo que getComplemento() retorne o complemento
             case 7:
                 return Numero.deStringForBigDecimal("" + item.getQuantidade());
+//                return item.getQuantidade();
             case 8:
                 return item.getProduto().getUnidade().getSigla();
             case 9:

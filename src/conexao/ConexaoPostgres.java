@@ -16,8 +16,8 @@ import javax.swing.JOptionPane;
 public class ConexaoPostgres {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/SysEstoqueSwing2023";
-    private static final String USUARIO = "admin"; // admin // postgres
-    private static final String SENHA = "123456"; //123456 // 1
+    private static final String USUARIO = "postgres"; // admin // postgres
+    private static final String SENHA = "1"; //123456 // 1
 
     public static Connection obterConexao() throws SQLException {
         try {

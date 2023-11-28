@@ -1833,7 +1833,7 @@ public final class Principal extends javax.swing.JFrame {
 
     private void lblRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRelatoriosMouseClicked
         chamaPainel(4);
-        carregarTabelaRelatorio("");
+        populaTabelaRelatorio("");
 
     }//GEN-LAST:event_lblRelatoriosMouseClicked
 
@@ -2537,7 +2537,7 @@ public final class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_tbExpedicaoKeyPressed
 
     private void btnBuscarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRelatorioActionPerformed
-        carregarTabelaRelatorio("" + txtBuscarRelatorio.getText());
+        populaTabelaRelatorio("" + txtBuscarRelatorio.getText());
     }//GEN-LAST:event_btnBuscarRelatorioActionPerformed
 
     private void txtBuscarRelatorioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarRelatorioKeyReleased
@@ -2561,6 +2561,20 @@ public final class Principal extends javax.swing.JFrame {
                     mostraCamposTransacao(false);
                     break;
                 }
+            }
+        }
+        if (evt.getClickCount() == 1) {
+            int rowIndex = tbRelatorio.getSelectedRow();
+            int columnIndex = tbRelatorio.getSelectedColumn();
+            System.out.println("columnIndex::" + columnIndex);
+            if (columnIndex == 1) {
+                String t = "" + tbRelatorio.getValueAt(rowIndex, 1) + "S";
+                System.out.println("t::" + t);
+                cbSelecionaTipoTransacaoRelatorio.setSelectedItem(t);
+            } else {
+                String t = "" + tbRelatorio.getValueAt(rowIndex, columnIndex);
+                System.out.println("t::" + t);
+                txtBuscarRelatorio.setText(t);
             }
         }
     }//GEN-LAST:event_tbRelatorioMouseClicked
@@ -2843,6 +2857,7 @@ public final class Principal extends javax.swing.JFrame {
     }
 
     private void populaTransacao() throws SQLException {
+        System.out.println("populaTransacao");
         populaProdutos();
         populaCbTipoNota();
         populaCbCfop();
@@ -2853,6 +2868,7 @@ public final class Principal extends javax.swing.JFrame {
     private void populaCbTipoNota() {
         DefaultComboBoxModel<TipoNota> model = new DefaultComboBoxModel<>(TipoNota.values());
         cbTipoTransacao.setModel(model);
+        System.out.println("populaCbTipoNota");
     }
 
     private void populaCbCfop() throws SQLException {
@@ -2862,6 +2878,7 @@ public final class Principal extends javax.swing.JFrame {
             model.addElement(cfop);
         }
         cbCfop.setModel(model);
+        System.out.println("populaCbCfop");
     }
 
     private void populaCbCliente() throws SQLException {
@@ -2871,11 +2888,12 @@ public final class Principal extends javax.swing.JFrame {
             model.addElement(cliente);
         }
         cbCliente.setModel(model);
-
+        System.out.println("populaCbCliente");
     }
 
     private void populaProdutos() throws SQLException {
         produtoController.popularProdutos();
+        System.out.println("populaProdutos");
     }
 
     private void populaCbProduto(String busca) throws SQLException {
@@ -2885,7 +2903,7 @@ public final class Principal extends javax.swing.JFrame {
             model.addElement(produto);
         }
         cbTransacaoProduto.setModel(model);
-
+        System.out.println("populaCbProduto");
     }
 
     private void salvarTransacao() {
@@ -3065,6 +3083,7 @@ public final class Principal extends javax.swing.JFrame {
     }
 
     public void carregaTabelaExpedicao(int status) {
+        System.out.println("carregaTabelaExpedicao");
         try {
             ExpedicaoController expedicaoController = new ExpedicaoController();
             List<Transacao> expedicao = expedicaoController.listarTransacoesComFiltro("", status);
@@ -3078,6 +3097,7 @@ public final class Principal extends javax.swing.JFrame {
     }
 
     public void carregaQuantidadeDeTransacao() {
+        System.out.println("carregaTabelaExpedicao");
         ExpedicaoController expedicaoController;
         Expedicao expedicao;
         try {
@@ -3095,7 +3115,7 @@ public final class Principal extends javax.swing.JFrame {
         }
     }
 
-    public void carregarTabelaRelatorio(String busca) {
+    public void populaTabelaRelatorio(String busca) {
         listaDeItens = transacaoController.listarTodosItensAtivos(busca,
                 cbSelecionaTipoTransacaoRelatorio.getSelectedIndex());
         TransacaoRelatorioTableModel tableModel = new TransacaoRelatorioTableModel(listaDeItens);

@@ -744,7 +744,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblExpedicaoTodasTitulo" pref="68" max="32767" attributes="0"/>
+                                  <Component id="lblExpedicaoTodasTitulo" pref="69" max="32767" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="lblExpedicaoTodasSubTitulo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -1394,7 +1394,7 @@
                               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jPanel4" max="32767" attributes="0"/>
-                                  <Component id="pnConfiguracoesUnidades" pref="364" max="32767" attributes="0"/>
+                                  <Component id="pnConfiguracoesUnidades" pref="354" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1417,7 +1417,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jPanel2" max="32767" attributes="0"/>
                                   <Component id="pnConfiguracoesNcm" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="pnConfiguracoesUnidades" alignment="1" pref="203" max="32767" attributes="0"/>
+                                  <Component id="pnConfiguracoesUnidades" alignment="1" pref="198" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
