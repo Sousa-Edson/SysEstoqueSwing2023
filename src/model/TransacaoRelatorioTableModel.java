@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
+import javax.swing.SwingConstants;
 import util.Moeda;
 import util.Numero;
 
@@ -61,6 +62,7 @@ public class TransacaoRelatorioTableModel extends AbstractTableModel {
             case 6:
                 return item.getComplemento(); // Supondo que getComplemento() retorne o complemento
             case 7:
+                  
                 return Numero.deStringForBigDecimal("" + item.getQuantidade());
 //                return item.getQuantidade();
             case 8:
@@ -77,4 +79,5 @@ public class TransacaoRelatorioTableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         return colunas[column];
     }
+    
 }

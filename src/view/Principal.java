@@ -45,6 +45,7 @@ import model.Usuario;
 import model.UsuarioLogado;
 import renderer.HoraCellRenderer;
 import renderer.LocalDateRenderer;
+import renderer.QuantidadeRenderer;
 import util.DataConverter;
 import static util.DataValidator.isDataValid;
 import util.GerarCodigoAleatorio;
@@ -3127,6 +3128,9 @@ public final class Principal extends javax.swing.JFrame {
         int colunaIndex = 5; // Índice da coluna, supondo que seja a segunda coluna (0 indexada)
 // Define a largura preferida da coluna
         columnModel.getColumn(colunaIndex).setPreferredWidth(larguraDesejada);
+        columnModel.getColumn(7).setPreferredWidth(100);
+        QuantidadeRenderer quantidadeRenderer = new QuantidadeRenderer();
+        tbRelatorio.getColumnModel().getColumn(7).setCellRenderer(quantidadeRenderer);
         txtBuscarRelatorio.requestFocus();
     }
 
