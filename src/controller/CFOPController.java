@@ -10,6 +10,7 @@ package controller;
  */
 import dao.CFOPDAO; // Importe a classe DAO correspondente
 import java.sql.SQLException;
+import java.util.ArrayList;
 import model.CFOP;
 import java.util.List;
 import java.util.logging.Level;
@@ -19,6 +20,8 @@ public class CFOPController {
 
     private CFOPDAO cfopDAO;
 
+    private final List<CFOP> cfops = new ArrayList<>();
+
     public CFOPController() {
         try {
             cfopDAO = new CFOPDAO(); // Inicialize o DAO correspondente
@@ -27,16 +30,16 @@ public class CFOPController {
         }
     }
 
-    public boolean salvarCFOP(int id, String codigo, String descricao, boolean ativo) { 
+    public boolean salvarCFOP(int id, String codigo, String descricao, boolean ativo) {
         CFOP cfop = new CFOP(id, codigo, descricao, ativo);
 
         if (cfop.getDescricao().trim().isEmpty() || cfop.getCodigo().trim().isEmpty()) {
             return false;
         }
 
-        if (id == 0) { 
+        if (id == 0) {
             return cfopDAO.adicionarCFOP(cfop);
-        } else { 
+        } else {
             return cfopDAO.atualizarCFOP(cfop);
         }
     }
@@ -61,8 +64,20 @@ public class CFOPController {
         return codigo.trim().isEmpty() || descricao.trim().isEmpty();
     }
 
+    public void carregaCfops() {
+        for (CFOP listarCFOPsAtivo : cfopDAO.listarCFOPsAtivos()) {
+            cfops.add(listarCFOPsAtivo);
+            System.out.println("carregaCfops -> "+listarCFOPsAtivo.getCodigo());
+        }
+    }
+
     public List<CFOP> listarCFOPsAtivos() {
-        return cfopDAO.listarCFOPsAtivos();
+        System.out.println("carregaCfops - normal tamanho:: "+cfops.size());
+        if (cfops.size() ==0) {
+            System.out.println("carregaCfops 0");
+            carregaCfops();
+        }
+        return cfops;
     }
 
     public void marcarCFOPComoDeletado(int id) {

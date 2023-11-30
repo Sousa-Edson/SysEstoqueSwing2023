@@ -1828,6 +1828,7 @@ public final class Principal extends javax.swing.JFrame {
 
     private void lblTransacoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTransacoesMouseClicked
         chamaPainel(3);
+        populaTransacao();
         carregaTabelaTransacao();
         mostraCamposTransacao(true);
     }//GEN-LAST:event_lblTransacoesMouseClicked
@@ -2857,13 +2858,18 @@ public final class Principal extends javax.swing.JFrame {
         tbProduto.setModel(tableModel);
     }
 
-    private void populaTransacao() throws SQLException {
+    private void populaTransacao() {
         System.out.println("populaTransacao");
-        populaProdutos();
+        //populaProdutos();
         populaCbTipoNota();
-        populaCbCfop();
-        populaCbCliente();
-        populaCbProduto("");
+        try {
+            populaCbCfop();
+            populaCbCliente();
+            populaCbProduto("");
+        } catch (Exception e) {
+            System.out.println("populaTransacao:: " + e);
+        }
+
     }
 
     private void populaCbTipoNota() {
