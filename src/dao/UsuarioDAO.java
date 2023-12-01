@@ -87,6 +87,7 @@ public class UsuarioDAO {
 
     // Outros métodos conforme necessário
     private Usuario criarUsuario(ResultSet resultSet) throws SQLException {
+        System.out.println("criarUsuario");
         Usuario usuario = new Usuario();
         usuario.setId(resultSet.getInt("id"));
         usuario.setNome(resultSet.getString("nome"));
