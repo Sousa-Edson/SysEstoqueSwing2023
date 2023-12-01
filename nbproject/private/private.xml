@@ -5,10 +5,9 @@
         <group>
             <file>file:/C:/Users/hp/Dropbox/3-Backup/4-Netbeans/sysEstoqueSwing2023/src/view/Principal.java</file>
             <file>file:/C:/Users/hp/Dropbox/3-Backup/4-Netbeans/sysEstoqueSwing2023/src/view/Login.java</file>
-            <file>file:/C:/Users/hp/Dropbox/3-Backup/4-Netbeans/sysEstoqueSwing2023/src/view/EmpresaDialog.java</file>
-            <file>file:/C:/Users/hp/Dropbox/3-Backup/4-Netbeans/sysEstoqueSwing2023/src/model/TransacaoRelatorioTableModel.java</file>
-            <file>file:/C:/Users/hp/Dropbox/3-Backup/4-Netbeans/sysEstoqueSwing2023/src/util/Numero.java</file>
-            <file>file:/C:/Users/hp/Dropbox/3-Backup/4-Netbeans/sysEstoqueSwing2023/src/renderer/QuantidadeRenderer.java</file>
+            <file>file:/C:/Users/hp/Dropbox/3-Backup/4-Netbeans/sysEstoqueSwing2023/src/dao/CFOPDAO.java</file>
+            <file>file:/C:/Users/hp/Dropbox/3-Backup/4-Netbeans/sysEstoqueSwing2023/src/controller/ProdutoController.java</file>
+            <file>file:/C:/Users/hp/Dropbox/3-Backup/4-Netbeans/sysEstoqueSwing2023/src/controller/CFOPController.java</file>
         </group>
     </open-files>
 </project-private>

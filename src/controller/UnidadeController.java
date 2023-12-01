@@ -10,13 +10,16 @@ package controller;
  */
 import dao.UnidadeDAO;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import model.Unidade;
 
 import java.util.List;
+import repository.BancoVirtual;
 
 public class UnidadeController {
 
     private final UnidadeDAO unidadeDAO;
+    private List<Unidade> unidades = new ArrayList<>();
 
     public UnidadeController() throws SQLException {
         unidadeDAO = new UnidadeDAO();
@@ -38,8 +41,19 @@ public class UnidadeController {
         unidadeDAO.excluirUnidade(id);
     }
 
+    public void carregarUnidadeSeVazia() {
+        System.out.println("controller.UnidadeController.carregarUnidadeSeVazia()");
+        if (unidades.isEmpty()) {
+            System.out.println("unidade vazia");
+            BancoVirtual.unidades.addAll(unidadeDAO.listarUnidades());
+            unidades.addAll(BancoVirtual.unidades);
+            System.out.println("unidade tamanho::" + unidades.size());
+        }
+    }
+
     public List<Unidade> listarUnidades() {
-        return unidadeDAO.listarUnidades();
+        System.out.println("unidade tamanho::" + unidades.size());
+        return BancoVirtual.unidades;
     }
 
     public Unidade obterUnidadePorId(int id) {

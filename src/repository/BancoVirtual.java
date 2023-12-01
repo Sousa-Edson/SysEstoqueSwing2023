@@ -7,12 +7,16 @@ package repository;
 import java.util.ArrayList;
 import java.util.List;
 import model.Produto;
+import model.Unidade;
 
 /**
  *
  * @author edson
  */
 public interface BancoVirtual {
+    
+      List<Unidade> unidades = new ArrayList<>(); 
+    
 
       List<Produto> produtos = new ArrayList<>();
       
