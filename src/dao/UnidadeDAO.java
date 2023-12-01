@@ -141,24 +141,24 @@ public class UnidadeDAO {
         }
     }
 
-    public List<Unidade> listarUnidadesAtivas() {
-        List<Unidade> unidades = new ArrayList<>();
-        try {
-            String sql = "SELECT id, sigla, descricao, ativo FROM unidade WHERE deletado = false AND ativo = true ORDER BY id ASC";
-            PreparedStatement preparedStatement = conexao.prepareStatement(sql);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String sigla = resultSet.getString("sigla");
-                String descricao = resultSet.getString("descricao");
-                boolean ativo = resultSet.getBoolean("ativo");
-                Unidade unidade = new Unidade(id, sigla, descricao, ativo);
-                unidades.add(unidade);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return unidades;
-    }
+//    public List<Unidade> listarUnidadesAtivas() {
+//        List<Unidade> unidades = new ArrayList<>();
+//        try {
+//            String sql = "SELECT id, sigla, descricao, ativo FROM unidade WHERE deletado = false AND ativo = true ORDER BY id ASC";
+//            PreparedStatement preparedStatement = conexao.prepareStatement(sql);
+//            ResultSet resultSet = preparedStatement.executeQuery();
+//            while (resultSet.next()) {
+//                int id = resultSet.getInt("id");
+//                String sigla = resultSet.getString("sigla");
+//                String descricao = resultSet.getString("descricao");
+//                boolean ativo = resultSet.getBoolean("ativo");
+//                Unidade unidade = new Unidade(id, sigla, descricao, ativo);
+//                unidades.add(unidade);
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return unidades;
+//    }
 
 }

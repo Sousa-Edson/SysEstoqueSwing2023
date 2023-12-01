@@ -19,7 +19,7 @@ import repository.BancoVirtual;
 public class UnidadeController {
 
     private final UnidadeDAO unidadeDAO;
-    private List<Unidade> unidades = new ArrayList<>();
+//    private List<Unidade> unidades = new ArrayList<>();
 
     public UnidadeController() throws SQLException {
         unidadeDAO = new UnidadeDAO();
@@ -42,22 +42,26 @@ public class UnidadeController {
     }
 
     public void carregarUnidadeSeVazia() {
-        System.out.println("controller.UnidadeController.carregarUnidadeSeVazia()");
-        if (unidades.isEmpty()) {
-            System.out.println("unidade vazia");
-            BancoVirtual.unidades.addAll(unidadeDAO.listarUnidades());
-            unidades.addAll(BancoVirtual.unidades);
-            System.out.println("unidade tamanho::" + unidades.size());
-        }
+//        if (BancoVirtual.unidades.isEmpty()) {
+//            System.out.println("unidade vazia");
+        BancoVirtual.unidades.clear();
+        BancoVirtual.unidades.addAll(unidadeDAO.listarUnidades());
+
+//        }
     }
 
     public List<Unidade> listarUnidades() {
-        System.out.println("unidade tamanho::" + unidades.size());
         return BancoVirtual.unidades;
     }
 
     public Unidade obterUnidadePorId(int id) {
-        return unidadeDAO.obterUnidadePorId(id);
+        for (Unidade unidade : BancoVirtual.unidades) {
+        if (unidade.getId() == id) {
+            return unidade; // Retorna a unidade se encontrar o ID correspondente
+        }
+    } 
+    return null;
+//        return unidadeDAO.obterUnidadePorId(id);
     }
 
     public void marcarUnidadeComoDeletada(int id) {
@@ -69,6 +73,12 @@ public class UnidadeController {
     }
 
     public List<Unidade> listarUnidadesAtivas() {
-        return unidadeDAO.listarUnidadesAtivas();
+        List<Unidade> unidades = new ArrayList<>();
+        for (Unidade unidade : BancoVirtual.unidades) {
+            if (unidade.isAtivo()) {
+                unidades.add(unidade);
+            }
+        }
+        return unidades;
     }
 }

@@ -5,11 +5,10 @@
  */
 package view;
 
+import controller.ProdutoController;
 import controller.UnidadeController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Timer;
 
 public class IniciandoSistema extends javax.swing.JFrame {
@@ -17,6 +16,7 @@ public class IniciandoSistema extends javax.swing.JFrame {
     Login login = new Login();
 
     UnidadeController unidadeController;
+    ProdutoController produtoController;
 
     public IniciandoSistema() {
         initComponents();
@@ -27,6 +27,9 @@ public class IniciandoSistema extends javax.swing.JFrame {
         try {
             unidadeController = new UnidadeController();
             unidadeController.carregarUnidadeSeVazia();
+            
+            produtoController = new ProdutoController();
+            produtoController.carregaProdutosSeVazio();
         } catch (Exception e) {
             System.out.println("Erro:: " + e);
         }

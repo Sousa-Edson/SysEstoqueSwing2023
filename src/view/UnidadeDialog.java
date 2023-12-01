@@ -380,6 +380,7 @@ public class UnidadeDialog extends javax.swing.JDialog {
                     descricao.toUpperCase(),
                     ckAtivaUnidade.isSelected())) {
                 limparCampos();
+                unidadeController.carregarUnidadeSeVazia();
                 carregaTabela();
                 JOptionPane.showMessageDialog(UnidadeDialog.this, "Unidade salva com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 

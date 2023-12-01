@@ -1821,7 +1821,7 @@ public final class Principal extends javax.swing.JFrame {
 
     private void lblProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblProdutosMouseClicked
         chamaPainel(2);
-        produtoController.popularProdutos();
+        produtoController.carregaProdutosSeVazio();
         carregaTabelaProduto();
 
     }//GEN-LAST:event_lblProdutosMouseClicked
@@ -2025,7 +2025,7 @@ public final class Principal extends javax.swing.JFrame {
                         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     produtoDialog.setVisible(true);
-                    produtoController.popularProdutos();
+                    produtoController.carregaProdutosSeVazio();
                     carregaTabelaProduto();
 
                 }
@@ -2037,7 +2037,7 @@ public final class Principal extends javax.swing.JFrame {
             int idProduto = (int) tbProduto.getValueAt(rowIndex, 0); // Obtenha o ID da primeira coluna (coluna 0) 
             boolean ativo = (boolean) tbProduto.getValueAt(rowIndex, 6); // Obtenha o ID da primeira coluna (coluna 0)
             produtoController.ativaProduto(idProduto, !ativo);
-            produtoController.popularProdutos();
+            produtoController.carregaProdutosSeVazio();
             carregaTabelaProduto();
         }
 
@@ -2063,7 +2063,7 @@ public final class Principal extends javax.swing.JFrame {
                         && codigoDeConfirmacao.equals(codigoDeConfirmacaoAleatorio)) {
                     produtoController.marcarProdutoComoDeletado(idProduto);
                     System.out.println("deletando - " + idProduto);
-                    produtoController.popularProdutos();
+                    produtoController.carregaProdutosSeVazio();
                     carregaTabelaProduto();
                 } else {
                     JOptionPane.showMessageDialog(null, "Código incorreto ou invalido.");
@@ -2900,7 +2900,7 @@ public final class Principal extends javax.swing.JFrame {
     }
 
     private void populaProdutos() throws SQLException {
-        produtoController.popularProdutos();
+        produtoController.carregaProdutosSeVazio();
         System.out.println("populaProdutos");
     }
 

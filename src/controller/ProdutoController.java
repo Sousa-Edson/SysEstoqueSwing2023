@@ -64,7 +64,7 @@ public class ProdutoController {
         return input.matches("-?\\d+(,\\d+)?(\\.\\d+)?");
     }
 
-    public void popularProdutos() {
+    public void carregaProdutosSeVazio() {
         if (produtos.isEmpty()) {
             produtos.clear();
 //        produtos =  produtoDAO.listarProdutos();
