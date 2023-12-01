@@ -17,11 +17,12 @@ import model.Unidade;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import repository.BancoVirtual;
 
 public class ProdutoController {
 
     private final ProdutoDAO produtoDAO;
-    private final List<Produto> produtos = new ArrayList<>();
+    private List<Produto> produtos = new ArrayList<>();
 
     public ProdutoController() throws SQLException {
         produtoDAO = new ProdutoDAO();
@@ -64,30 +65,48 @@ public class ProdutoController {
     }
 
     public void popularProdutos() {
-        produtos.clear();
-        produtoDAO.listarProdutos().forEach((produto) -> {
-            produtos.add(produto);
-        });
+        if (produtos.isEmpty()) {
+            produtos.clear();
+//        produtos =  produtoDAO.listarProdutos();
+            BancoVirtual.produtos.addAll(produtoDAO.listarProdutos());
+
+            produtos = BancoVirtual.produtos;
+//        produtoDAO.listarProdutos().forEach((produto) -> {
+//            produtos.add(produto);
+//        });
+        }
+    }
+    public void popularProdutosNovamente() {
+       
+            produtos.clear();
+//        produtos =  produtoDAO.listarProdutos();
+            BancoVirtual.produtos.addAll(produtoDAO.listarProdutos());
+
+            produtos = BancoVirtual.produtos;
+//        produtoDAO.listarProdutos().forEach((produto) -> {
+//            produtos.add(produto);
+//        });
+        
     }
 
-    public List<Produto> filtrarProdutos(String termoPesquisa) {
+    public List<Produto> filtrarProdutos(String termoPesquisa) { // corrigir maneira que carrega produto
         List<Produto> produtosFiltrados = new ArrayList<>();
         produtos.stream().filter((produto) -> (produto.getDescricao().toUpperCase().contains(termoPesquisa.toUpperCase())
                 || produto.getObservacao().toUpperCase().contains(termoPesquisa.toUpperCase())))
                 .forEachOrdered((produto) -> {
-            produtosFiltrados.add(produto);
-        });
+                    produtosFiltrados.add(produto);
+                });
         return produtosFiltrados;
     }
-    
+
     public List<Produto> filtrarProdutosAtivos(String termoPesquisa) {
         List<Produto> produtosFiltrados = new ArrayList<>();
         produtos.stream().filter((produto) -> (produto.getDescricao().toUpperCase().contains(termoPesquisa.toUpperCase())
                 || produto.getObservacao().toUpperCase().contains(termoPesquisa.toUpperCase())))
-                 .filter(Produto::isAtivo) // Adiciona o filtro para produtos ativos
+                .filter(Produto::isAtivo) // Adiciona o filtro para produtos ativos
                 .forEachOrdered((produto) -> {
-            produtosFiltrados.add(produto);
-        });
+                    produtosFiltrados.add(produto);
+                });
         return produtosFiltrados;
     }
 

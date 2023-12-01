@@ -569,7 +569,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblPendente" pref="62" max="32767" attributes="0"/>
+                                  <Component id="lblPendente" pref="63" max="32767" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -627,7 +627,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblPreparacao" pref="62" max="32767" attributes="0"/>
+                                  <Component id="lblPreparacao" pref="63" max="32767" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -685,7 +685,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblCriado" pref="62" max="32767" attributes="0"/>
+                                  <Component id="lblCriado" pref="63" max="32767" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -802,7 +802,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblPronto" pref="62" max="32767" attributes="0"/>
+                                  <Component id="lblPronto" pref="63" max="32767" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -860,7 +860,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblAguardando" pref="62" max="32767" attributes="0"/>
+                                  <Component id="lblAguardando" pref="63" max="32767" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -918,7 +918,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblEnviado" pref="62" max="32767" attributes="0"/>
+                                  <Component id="lblEnviado" pref="63" max="32767" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -1394,7 +1394,7 @@
                               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jPanel4" max="32767" attributes="0"/>
-                                  <Component id="pnConfiguracoesUnidades" pref="348" max="32767" attributes="0"/>
+                                  <Component id="pnConfiguracoesUnidades" pref="358" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1417,7 +1417,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jPanel2" max="32767" attributes="0"/>
                                   <Component id="pnConfiguracoesNcm" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="pnConfiguracoesUnidades" alignment="1" pref="198" max="32767" attributes="0"/>
+                                  <Component id="pnConfiguracoesUnidades" alignment="1" pref="203" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">

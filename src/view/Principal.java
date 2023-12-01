@@ -1860,7 +1860,7 @@ public final class Principal extends javax.swing.JFrame {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
         produtoDialog.setVisible(true);
-        produtoController.popularProdutos();
+        produtoController.popularProdutosNovamente();
         carregaTabelaProduto();
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -2853,6 +2853,7 @@ public final class Principal extends javax.swing.JFrame {
     }
 
     public void carregaTabelaProduto() {
+//        produtoController.popularProdutosNovamente();
         List<Produto> listaDeProdutos = produtoController.filtrarProdutos(txtBuscar.getText());
         ProdutoTableModel tableModel = new ProdutoTableModel(listaDeProdutos); // Substitua "listarProdutos" pelos seus dados
         tbProduto.setModel(tableModel);
