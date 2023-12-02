@@ -232,8 +232,8 @@ public class CfopDialog extends javax.swing.JDialog {
             idCfop = (int) jTable1.getValueAt(rowIndex, 0); // Obtenha o ID da primeira coluna (coluna 0)
 
             Object[] options = {"Confirmar", "Cancelar"};
-            if (JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar",
-                    "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]) == 0) {
+            if (JOptionPane.showOptionDialog(null, "Deseja realmente delatar o item? "+idCfop,
+                    "Deletar id:"+idCfop, JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[1]) == 0) {
 
                 // Gerar um código aleatório
                 String codigoDeConfirmacaoAleatorio = GerarCodigoAleatorio.gerarCodigoAleatorio();
@@ -396,7 +396,7 @@ public class CfopDialog extends javax.swing.JDialog {
                 }
             } else {
                 JOptionPane.showMessageDialog(CfopDialog.this,
-                        "Código NCM não valido!", "Aviso",
+                        "Código CFOP não é valido!", "Aviso",
                         JOptionPane.WARNING_MESSAGE);
             }
 
