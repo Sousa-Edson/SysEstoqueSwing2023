@@ -10,9 +10,11 @@ package controller;
  */
 import dao.NCMDAO;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import model.NCM;
 
 import java.util.List;
+import repository.BancoVirtual;
 
 public class NCMController {
 
@@ -38,12 +40,22 @@ public class NCMController {
         ncmDAO.excluirNCM(id);
     }
 
+    public void carregaCfopSeVazio() {
+        BancoVirtual.ncms.clear();
+        BancoVirtual.ncms.addAll(ncmDAO.listarNCMs());
+    }
+
     public List<NCM> listarNCMs() {
-        return ncmDAO.listarNCMs();
+        return BancoVirtual.ncms;
     }
 
     public NCM obterNCMPorId(int id) {
-        return ncmDAO.obterNCMPorId(id);
+        for (NCM ncm : BancoVirtual.ncms) {
+            if (ncm.getId() == id) {
+                return ncm;
+            }
+        }
+        return null;
     }
 
     public void marcarNCMComoDeletado(int id) {
@@ -55,7 +67,13 @@ public class NCMController {
     }
 
     public List<NCM> listarNCMsAtivos() {
-        return ncmDAO.listarNCMsAtivos();
+        List<NCM> ncms = new ArrayList<>();
+        for (NCM ncm : BancoVirtual.ncms) {
+            if (ncm.isAtivo()) {
+                ncms.add(ncm);
+            }
+        }
+        return ncms;
     }
 
     public boolean validarNCM(String ncm) {
