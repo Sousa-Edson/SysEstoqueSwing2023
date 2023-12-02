@@ -42,12 +42,9 @@ public class UnidadeController {
     }
 
     public void carregarUnidadeSeVazia() {
-//        if (BancoVirtual.unidades.isEmpty()) {
-//            System.out.println("unidade vazia");
         BancoVirtual.unidades.clear();
         BancoVirtual.unidades.addAll(unidadeDAO.listarUnidades());
 
-//        }
     }
 
     public List<Unidade> listarUnidades() {
@@ -56,12 +53,11 @@ public class UnidadeController {
 
     public Unidade obterUnidadePorId(int id) {
         for (Unidade unidade : BancoVirtual.unidades) {
-        if (unidade.getId() == id) {
-            return unidade; // Retorna a unidade se encontrar o ID correspondente
+            if (unidade.getId() == id) {
+                return unidade; // Retorna a unidade se encontrar o ID correspondente
+            }
         }
-    } 
-    return null;
-//        return unidadeDAO.obterUnidadePorId(id);
+        return null;
     }
 
     public void marcarUnidadeComoDeletada(int id) {
