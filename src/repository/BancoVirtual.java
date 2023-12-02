@@ -6,6 +6,8 @@ package repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.CFOP;
+import model.NCM;
 import model.Produto;
 import model.Unidade;
 
@@ -14,11 +16,13 @@ import model.Unidade;
  * @author edson
  */
 public interface BancoVirtual {
-    
-      List<Unidade> unidades = new ArrayList<>(); 
-    
 
-      List<Produto> produtos = new ArrayList<>();
-      
+    List<Unidade> unidades = new ArrayList<>();
+
+    List<CFOP> cfops = new ArrayList<>();
+    
+    List<NCM> ncms = new ArrayList<>();
+
+    List<Produto> produtos = new ArrayList<>();
 
 }
