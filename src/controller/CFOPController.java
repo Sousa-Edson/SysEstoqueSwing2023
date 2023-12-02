@@ -15,13 +15,13 @@ import model.CFOP;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import repository.BancoVirtual;
 
 public class CFOPController {
 
     private CFOPDAO cfopDAO;
 
-    private final List<CFOP> cfops = new ArrayList<>();
-
+    
     public CFOPController() {
         try {
             cfopDAO = new CFOPDAO(); // Inicialize o DAO correspondente
@@ -48,12 +48,22 @@ public class CFOPController {
         cfopDAO.excluirCFOP(id);
     }
 
+    public void carregaCfopSeVazio() {
+        BancoVirtual.cfops.clear();
+        BancoVirtual.cfops.addAll(cfopDAO.listarCFOPs());
+    }
+
     public List<CFOP> listarCFOPs() {
-        return cfopDAO.listarCFOPs();
+        return BancoVirtual.cfops;
     }
 
     public CFOP obterCFOPPorId(int id) {
-        return cfopDAO.obterCFOPPorId(id);
+        for (CFOP cfop : BancoVirtual.cfops) {
+            if (cfop.getId() == id) {
+                return cfop;
+            }
+        }
+        return null;
     }
 
     public void marcarCFOPComoInativo(int id) {
@@ -63,19 +73,13 @@ public class CFOPController {
     public boolean codigoDescricaoVazios(String codigo, String descricao) {
         return codigo.trim().isEmpty() || descricao.trim().isEmpty();
     }
-
-    public void carregaCfops() {
-        for (CFOP listarCFOPsAtivo : cfopDAO.listarCFOPsAtivos()) {
-            cfops.add(listarCFOPsAtivo);
-            System.out.println("carregaCfops -> "+listarCFOPsAtivo.getCodigo());
-        }
-    }
-
+ 
     public List<CFOP> listarCFOPsAtivos() {
-        System.out.println("carregaCfops - normal tamanho:: "+cfops.size());
-        if (cfops.size() ==0) {
-            System.out.println("carregaCfops 0");
-            carregaCfops();
+        List<CFOP> cfops = new ArrayList<>();
+        for (CFOP cfop : BancoVirtual.cfops) {
+            if (cfop.isAtivo()) {
+                cfops.add(cfop);
+            }
         }
         return cfops;
     }
