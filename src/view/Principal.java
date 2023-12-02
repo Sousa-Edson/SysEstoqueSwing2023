@@ -1821,7 +1821,7 @@ public final class Principal extends javax.swing.JFrame {
 
     private void lblProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblProdutosMouseClicked
         chamaPainel(2);
-        produtoController.carregaProdutosSeVazio();
+//        produtoController.carregaProdutosSeVazio();
         carregaTabelaProduto();
 
     }//GEN-LAST:event_lblProdutosMouseClicked
@@ -1850,6 +1850,10 @@ public final class Principal extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_F2) {
             btnNovo.doClick();
         }
+        
+         if (evt.getKeyCode() == KeyEvent.VK_F5) {
+           produtoController.carregaProdutosSeVazio();
+        }
     }//GEN-LAST:event_txtBuscarKeyReleased
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
@@ -1860,7 +1864,7 @@ public final class Principal extends javax.swing.JFrame {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
         produtoDialog.setVisible(true);
-        produtoController.popularProdutosNovamente();
+//        produtoController.carregaProdutosSeVazio();
         carregaTabelaProduto();
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -2852,11 +2856,11 @@ public final class Principal extends javax.swing.JFrame {
         }
     }
 
-    public void carregaTabelaProduto() {
-//        produtoController.popularProdutosNovamente();
+    public void carregaTabelaProduto() { 
         List<Produto> listaDeProdutos = produtoController.filtrarProdutos(txtBuscar.getText());
         ProdutoTableModel tableModel = new ProdutoTableModel(listaDeProdutos); // Substitua "listarProdutos" pelos seus dados
         tbProduto.setModel(tableModel);
+        txtBuscar.requestFocus();
     }
 
     private void populaTransacao() {

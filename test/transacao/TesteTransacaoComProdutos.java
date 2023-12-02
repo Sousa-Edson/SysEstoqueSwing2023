@@ -33,7 +33,7 @@ public class TesteTransacaoComProdutos {
             TransacaoController transacaoController = new TransacaoController();
             ProdutoController produtoController = new ProdutoController();
  
-            System.out.println("produto::"+produtoController.listarProdutos());
+//            System.out.println("produto::"+produtoController.listarProdutos());
 
             // Criação de uma lista de produtos
             List<Produto> produtos = new ArrayList<>();

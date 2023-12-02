@@ -30,6 +30,7 @@ public class ProdutoDialog extends javax.swing.JDialog {
 
     private ProdutoController produtoController;
     private int idProduto = 0;
+    private boolean modificado = false;
 
     /**
      * Creates new form ProdutoDialog
@@ -70,6 +71,17 @@ public class ProdutoDialog extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+
+        cbUnidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbUnidadeKeyPressed(evt);
+            }
+        });
 
         txtDescricaoProduto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -82,6 +94,12 @@ public class ProdutoDialog extends javax.swing.JDialog {
         jLabel2.setText("UNIDADE");
 
         jLabel3.setText("VALOR R$");
+
+        cbNcm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cbNcmKeyReleased(evt);
+            }
+        });
 
         txtValorProduto.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -264,6 +282,32 @@ public class ProdutoDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtDescricaoProdutoKeyReleased
 
+    private void cbUnidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbUnidadeKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_F5) {
+            try {
+                popularComboBoxUnidades();
+            } catch (SQLException ex) {
+                Logger.getLogger(ProdutoDialog.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_cbUnidadeKeyPressed
+
+    private void cbNcmKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbNcmKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_F5) {
+            try {
+                popularComboBoxNcms();
+            } catch (SQLException ex) {
+                Logger.getLogger(ProdutoDialog.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_cbNcmKeyReleased
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        if (modificado != false) {
+            produtoController.carregaProdutosSeVazio();
+        }
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -332,6 +376,7 @@ public class ProdutoDialog extends javax.swing.JDialog {
 
     public void popularComboBoxUnidades() throws SQLException {
         UnidadeController unidadeController = new UnidadeController();
+        unidadeController.carregarUnidadeSeVazia();
         // Suponha que "unidades" seja uma lista das unidades obtidas do banco de dados.
         DefaultComboBoxModel<Unidade> model = new DefaultComboBoxModel<>();
         for (Unidade unidade : unidadeController.listarUnidadesAtivas()) {
@@ -343,6 +388,7 @@ public class ProdutoDialog extends javax.swing.JDialog {
 
     public void popularComboBoxNcms() throws SQLException {
         NCMController ncmController = new NCMController();
+        ncmController.carregaCfopSeVazio();
         // Suponha que "unidades" seja uma lista das unidades obtidas do banco de dados.
         DefaultComboBoxModel<NCM> model = new DefaultComboBoxModel<>();
         for (NCM ncm : ncmController.listarNCMsAtivos()) {
@@ -394,7 +440,10 @@ public class ProdutoDialog extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(ProdutoDialog.this,
                             "Produto salvo.", "Informação",
                             JOptionPane.INFORMATION_MESSAGE);
+
+//                    produtoController.carregaProdutosSeVazio();
                     limpasCampos();
+                    modificado = true;
                     if (idProduto != 0) {
                         this.dispose();
                     }

@@ -22,7 +22,7 @@ import repository.BancoVirtual;
 public class ProdutoController {
 
     private final ProdutoDAO produtoDAO;
-    private List<Produto> produtos = new ArrayList<>();
+//    private List<Produto> produtos = new ArrayList<>();
 
     public ProdutoController() throws SQLException {
         produtoDAO = new ProdutoDAO();
@@ -44,10 +44,9 @@ public class ProdutoController {
         produtoDAO.excluirProduto(id);
     }
 
-    public List<Produto> listarProdutos() {
-        return produtoDAO.listarProdutos();
-    }
-
+//    public List<Produto> listarProdutos() {
+//        return produtoDAO.listarProdutos();
+//    }
     public Produto obterProdutoPorId(int id) {
         return produtoDAO.obterProdutoPorId(id);
     }
@@ -65,48 +64,45 @@ public class ProdutoController {
     }
 
     public void carregaProdutosSeVazio() {
-        if (produtos.isEmpty()) {
-            produtos.clear();
-//        produtos =  produtoDAO.listarProdutos();
-            BancoVirtual.produtos.addAll(produtoDAO.listarProdutos());
 
-            produtos = BancoVirtual.produtos;
-//        produtoDAO.listarProdutos().forEach((produto) -> {
-//            produtos.add(produto);
-//        });
-        }
-    }
-    public void popularProdutosNovamente() {
-       
-            produtos.clear();
-//        produtos =  produtoDAO.listarProdutos();
-            BancoVirtual.produtos.addAll(produtoDAO.listarProdutos());
+        BancoVirtual.produtos.clear();
+        BancoVirtual.produtos.addAll(produtoDAO.listarProdutos());
 
-            produtos = BancoVirtual.produtos;
-//        produtoDAO.listarProdutos().forEach((produto) -> {
-//            produtos.add(produto);
-//        });
-        
+        System.out.println("### carregaProdutosSeVazio \ntamanho: " + BancoVirtual.produtos.size() + " registros");
+
     }
 
     public List<Produto> filtrarProdutos(String termoPesquisa) { // corrigir maneira que carrega produto
         List<Produto> produtosFiltrados = new ArrayList<>();
-        produtos.stream().filter((produto) -> (produto.getDescricao().toUpperCase().contains(termoPesquisa.toUpperCase())
-                || produto.getObservacao().toUpperCase().contains(termoPesquisa.toUpperCase())))
-                .forEachOrdered((produto) -> {
+        if (!termoPesquisa.trim().isEmpty()) {
+            String termoPesquisaUpper = termoPesquisa.toUpperCase();
+            for (Produto produto : BancoVirtual.produtos) {
+                if (String.valueOf(produto.getId()).equals(termoPesquisa)
+                        || produto.getDescricao().toUpperCase().contains(termoPesquisaUpper)
+                        || produto.getObservacao().toUpperCase().contains(termoPesquisaUpper)) {
                     produtosFiltrados.add(produto);
-                });
+                }
+            }
+        } else {
+            produtosFiltrados.addAll(BancoVirtual.produtos);
+        }
         return produtosFiltrados;
     }
 
     public List<Produto> filtrarProdutosAtivos(String termoPesquisa) {
         List<Produto> produtosFiltrados = new ArrayList<>();
-        produtos.stream().filter((produto) -> (produto.getDescricao().toUpperCase().contains(termoPesquisa.toUpperCase())
-                || produto.getObservacao().toUpperCase().contains(termoPesquisa.toUpperCase())))
-                .filter(Produto::isAtivo) // Adiciona o filtro para produtos ativos
-                .forEachOrdered((produto) -> {
+
+        String termoPesquisaUpper = termoPesquisa.toUpperCase();
+        for (Produto produto : BancoVirtual.produtos) {
+            if (produto.isAtivo()) {
+                if (String.valueOf(produto.getId()).equals(termoPesquisa)
+                        || produto.getDescricao().toUpperCase().contains(termoPesquisaUpper)
+                        || produto.getObservacao().toUpperCase().contains(termoPesquisaUpper)) {
                     produtosFiltrados.add(produto);
-                });
+                }
+            }
+        }
+
         return produtosFiltrados;
     }
 
