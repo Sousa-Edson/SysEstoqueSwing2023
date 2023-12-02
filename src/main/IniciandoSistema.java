@@ -25,6 +25,7 @@ public class IniciandoSistema extends javax.swing.JFrame {
     NCMController ncmController;
     ProdutoController produtoController;
     TransacaoController transacaoController;
+    ClienteController clienteController;
 
     public IniciandoSistema() {
         initComponents();
@@ -36,26 +37,38 @@ public class IniciandoSistema extends javax.swing.JFrame {
             unidadeController = new UnidadeController();
             unidadeController.carregarUnidadeSeVazia();
 
+            lblCarregando.setText("Carregando... unidades");
+
             cfopController = new CFOPController();
             cfopController.carregaCfopSeVazio();
+
+            lblCarregando.setText("Carregando... cfop");
 
             ncmController = new NCMController();
             ncmController.carregaNcmSeVazio();
 
+            lblCarregando.setText("Carregando... ncm");
+
             produtoController = new ProdutoController();
             produtoController.carregaProdutosSeVazio();
+
+            lblCarregando.setText("Carregando... produtos");
+
+            clienteController = new ClienteController();
+            clienteController.carregaClientesSeVazio();
+
+            lblCarregando.setText("Carregando... clientes");
 
             transacaoController = new TransacaoController();
             transacaoController.carregaTransacoesSeVazio();
 
-            ClienteController clienteController = new ClienteController();
-            clienteController.carregaClientesSeVazio();
+            lblCarregando.setText("Carregando... transações");
 
         } catch (Exception e) {
             System.out.println("Erro:: " + e);
         }
 
-        Timer timer = new Timer(500, new ActionListener() {
+        Timer timer = new Timer(50, new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,28 +90,39 @@ public class IniciandoSistema extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblCarregando = new javax.swing.JLabel();
+        lblImagem = new javax.swing.JLabel();
+
+        jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
 
-        jLabel1.setText("Carregando");
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        lblCarregando.setFont(new java.awt.Font("Fira Sans", 1, 18)); // NOI18N
+        lblCarregando.setForeground(new java.awt.Color(51, 51, 51));
+        lblCarregando.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCarregando.setText("Carregando...");
+        jPanel1.add(lblCarregando, java.awt.BorderLayout.CENTER);
+
+        lblImagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/storyline-500.jpg"))); // NOI18N
+        jPanel1.add(lblImagem, java.awt.BorderLayout.PAGE_START);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(113, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -141,6 +165,9 @@ public class IniciandoSistema extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCarregando;
+    private javax.swing.JLabel lblImagem;
     // End of variables declaration//GEN-END:variables
 }
