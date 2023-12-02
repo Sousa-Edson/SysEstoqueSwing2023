@@ -245,6 +245,7 @@ public class NcmDialog extends javax.swing.JDialog {
                 if (codigoDeConfirmacao != null && codigoDeConfirmacao.length() == 4
                         && codigoDeConfirmacao.equals(codigoDeConfirmacaoAleatorio)) {
                     ncmController.marcarNCMComoDeletado(idNcm);
+                    ncmController.carregaCfopSeVazio();
                     carregaTabela();
                 } else {
                     JOptionPane.showMessageDialog(null, "Código incorreto ou invalido.");
@@ -382,6 +383,7 @@ public class NcmDialog extends javax.swing.JDialog {
                         descricao.toUpperCase(),
                         ckAtivaNcm.isSelected())) {
                     limparCampos();
+                    ncmController.carregaCfopSeVazio();
                     carregaTabela();
                     JOptionPane.showMessageDialog(NcmDialog.this, "Ncm salva com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
