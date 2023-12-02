@@ -13,6 +13,7 @@ import model.Cliente;
 
 import java.sql.SQLException;
 import java.util.List;
+import repository.BancoVirtual;
 
 public class ClienteController {
 
@@ -42,11 +43,17 @@ public class ClienteController {
         clienteDAO.excluirCliente(id);
     }
 
-    public List<Cliente> listarClientes() {
-        return clienteDAO.listarClientes();
+    public void carregaClientesSeVazio() {
+        BancoVirtual.clientes.clear();
+        BancoVirtual.clientes.addAll(clienteDAO.listarClientes());
+        System.out.println("### carregaClientesSeVazio \ntamanho: " + BancoVirtual.clientes.size() + " registros");
     }
 
-    public Cliente obterClientePorId(int id) { 
+    public List<Cliente> listarClientes() {
+        return BancoVirtual.clientes;
+    }
+
+    public Cliente obterClientePorId(int id) {
         return clienteDAO.obterClientePorId(id);
     }
 

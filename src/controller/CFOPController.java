@@ -51,6 +51,7 @@ public class CFOPController {
     public void carregaCfopSeVazio() {
         BancoVirtual.cfops.clear();
         BancoVirtual.cfops.addAll(cfopDAO.listarCFOPs());
+        System.out.println("### carregaCfopSeVazio \ntamanho: " + BancoVirtual.cfops.size() + " registros");
     }
 
     public List<CFOP> listarCFOPs() {

@@ -1827,6 +1827,7 @@ public final class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_lblProdutosMouseClicked
 
     private void lblTransacoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTransacoesMouseClicked
+
         chamaPainel(3);
         populaTransacao();
         carregaTabelaTransacao();
@@ -1850,9 +1851,9 @@ public final class Principal extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_F2) {
             btnNovo.doClick();
         }
-        
-         if (evt.getKeyCode() == KeyEvent.VK_F5) {
-           produtoController.carregaProdutosSeVazio();
+
+        if (evt.getKeyCode() == KeyEvent.VK_F5) {
+            produtoController.carregaProdutosSeVazio();
         }
     }//GEN-LAST:event_txtBuscarKeyReleased
 
@@ -1884,6 +1885,9 @@ public final class Principal extends javax.swing.JFrame {
     private void txtBuscarTransacaoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarTransacaoKeyReleased
         if (evt.getKeyCode() == evt.VK_ENTER) {
             btnBuscarTransacoes.doClick();
+        }
+        if (evt.getKeyCode() == evt.VK_F5) {
+            transacaoController.carregaTransacoesSeVazio();
         }
     }//GEN-LAST:event_txtBuscarTransacaoKeyReleased
 
@@ -2249,6 +2253,7 @@ public final class Principal extends javax.swing.JFrame {
                         && codigoDeConfirmacao.equals(codigoDeConfirmacaoAleatorio)) {
                     transacaoController.marcarTransacaoComoDeletado(idMovimento);
                     System.out.println("deletando - " + idMovimento);
+                    transacaoController.carregaTransacoesSeVazio();
                     carregaTabelaTransacao();
                 } else {
                     JOptionPane.showMessageDialog(null, "Código incorreto ou invalido.");
@@ -2856,7 +2861,7 @@ public final class Principal extends javax.swing.JFrame {
         }
     }
 
-    public void carregaTabelaProduto() { 
+    public void carregaTabelaProduto() {
         List<Produto> listaDeProdutos = produtoController.filtrarProdutos(txtBuscar.getText());
         ProdutoTableModel tableModel = new ProdutoTableModel(listaDeProdutos); // Substitua "listarProdutos" pelos seus dados
         tbProduto.setModel(tableModel);
@@ -2865,7 +2870,6 @@ public final class Principal extends javax.swing.JFrame {
 
     private void populaTransacao() {
         System.out.println("populaTransacao");
-        //populaProdutos();
         populaCbTipoNota();
         try {
             populaCbCfop();
@@ -2957,7 +2961,7 @@ public final class Principal extends javax.swing.JFrame {
                         nota, chave, data,
                         hora, informacoesComplementares, motorista, itens);
                 Boolean tudoCorreto = true;
-                if (itens.size() > 3) {
+                if (itens.size() > 5) {
                     Object[] options = {"Sim", "Não"};
                     if (JOptionPane.showOptionDialog(null, "A transação tem mais que 5 itens\nDeseja validar os itens?",
                             "Aviso", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
@@ -2987,6 +2991,7 @@ public final class Principal extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(rootPane,
                                 "Trasanção salva com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
                         transacaoController.limparItens();
+                        transacaoController.carregaTransacoesSeVazio();
                         carregarTabelaItemTransacao();
                         limparCamposTransacao();
                     }
@@ -3011,6 +3016,7 @@ public final class Principal extends javax.swing.JFrame {
         tbTransacoes.setModel(tableModel);
         tbTransacoes.getColumnModel().getColumn(6).setCellRenderer(new LocalDateRenderer());
         tbTransacoes.getColumnModel().getColumn(7).setCellRenderer(new HoraCellRenderer());
+        txtBuscarTransacao.requestFocus();
     }
 
     public void carregarTabelaItemTransacao() {

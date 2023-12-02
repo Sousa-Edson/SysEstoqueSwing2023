@@ -388,7 +388,7 @@ public class ProdutoDialog extends javax.swing.JDialog {
 
     public void popularComboBoxNcms() throws SQLException {
         NCMController ncmController = new NCMController();
-        ncmController.carregaCfopSeVazio();
+        ncmController.carregaNcmSeVazio();
         // Suponha que "unidades" seja uma lista das unidades obtidas do banco de dados.
         DefaultComboBoxModel<NCM> model = new DefaultComboBoxModel<>();
         for (NCM ncm : ncmController.listarNCMsAtivos()) {

@@ -40,9 +40,10 @@ public class NCMController {
         ncmDAO.excluirNCM(id);
     }
 
-    public void carregaCfopSeVazio() {
+    public void carregaNcmSeVazio() {
         BancoVirtual.ncms.clear();
         BancoVirtual.ncms.addAll(ncmDAO.listarNCMs());
+        System.out.println("### carregaNcmSeVazio \ntamanho: " + BancoVirtual.ncms.size() + " registros");
     }
 
     public List<NCM> listarNCMs() {

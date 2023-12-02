@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Item;
+import repository.BancoVirtual;
 import util.DataConverter;
 import util.Moeda;
 
@@ -111,9 +112,15 @@ public class TransacaoController {
         }
     }
 
+    public void carregaTransacoesSeVazio() {
+        BancoVirtual.transacoes.clear();
+        BancoVirtual.transacoes.addAll(transacaoDAO.listarTransacoes());
+        System.out.println("### carregaTransacoesSeVazio \ntamanho: " + BancoVirtual.transacoes.size() + " registros");
+    }
+
     public List<Transacao> listarTransacoesComFiltro(String busca, int tipoBusca) {
         List<Transacao> transacoes = new ArrayList<>();
-        for (Transacao transacao : transacaoDAO.listarTransacoes()) {
+        for (Transacao transacao : BancoVirtual.transacoes) {
             if (transacao.getNota().contains(busca) || transacao.getCliente().getNomeFantasia().contains(busca.toUpperCase()) || DataConverter.dataParaString("" + transacao.getData()).contains(busca)) {
                 switch (tipoBusca) {
                     case 1:
@@ -144,8 +151,8 @@ public class TransacaoController {
     }
 
     public List<Item> listarTodosItensAtivos(String busca, int tipoBusca) {
-        List<Item> itensRelatorio = new ArrayList<>(); 
-        for (Item item : transacaoDAO.listarTodosItensAtivos()) { 
+        List<Item> itensRelatorio = new ArrayList<>();
+        for (Item item : transacaoDAO.listarTodosItensAtivos()) {
             if (item.getTransacao().getNota().contains(busca)
                     || DataConverter.dataParaString("" + item.getTransacao().getData()).contains(busca)
                     || item.getProduto().getDescricao().contains(busca.toUpperCase())
@@ -167,7 +174,7 @@ public class TransacaoController {
                 }
             }
         }
-        
+
         return itensRelatorio;
     }
 }

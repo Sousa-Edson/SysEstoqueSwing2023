@@ -64,12 +64,9 @@ public class ProdutoController {
     }
 
     public void carregaProdutosSeVazio() {
-
         BancoVirtual.produtos.clear();
         BancoVirtual.produtos.addAll(produtoDAO.listarProdutos());
-
         System.out.println("### carregaProdutosSeVazio \ntamanho: " + BancoVirtual.produtos.size() + " registros");
-
     }
 
     public List<Produto> filtrarProdutos(String termoPesquisa) { // corrigir maneira que carrega produto

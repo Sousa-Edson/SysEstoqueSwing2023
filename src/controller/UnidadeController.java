@@ -44,7 +44,7 @@ public class UnidadeController {
     public void carregarUnidadeSeVazia() {
         BancoVirtual.unidades.clear();
         BancoVirtual.unidades.addAll(unidadeDAO.listarUnidades());
-
+        System.out.println("### carregarUnidadeSeVazia \ntamanho: " + BancoVirtual.unidades.size() + " registros");
     }
 
     public List<Unidade> listarUnidades() {

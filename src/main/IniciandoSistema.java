@@ -6,8 +6,10 @@
 package main;
 
 import controller.CFOPController;
+import controller.ClienteController;
 import controller.NCMController;
 import controller.ProdutoController;
+import controller.TransacaoController;
 import controller.UnidadeController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,9 +21,10 @@ public class IniciandoSistema extends javax.swing.JFrame {
     Login login = new Login();
 
     UnidadeController unidadeController;
-    CFOPController cfopController ;
-    NCMController ncmController ;
+    CFOPController cfopController;
+    NCMController ncmController;
     ProdutoController produtoController;
+    TransacaoController transacaoController;
 
     public IniciandoSistema() {
         initComponents();
@@ -32,15 +35,22 @@ public class IniciandoSistema extends javax.swing.JFrame {
         try {
             unidadeController = new UnidadeController();
             unidadeController.carregarUnidadeSeVazia();
-            
+
             cfopController = new CFOPController();
             cfopController.carregaCfopSeVazio();
-            
-            ncmController=   new NCMController();
-            ncmController.carregaCfopSeVazio();
-            
+
+            ncmController = new NCMController();
+            ncmController.carregaNcmSeVazio();
+
             produtoController = new ProdutoController();
             produtoController.carregaProdutosSeVazio();
+
+            transacaoController = new TransacaoController();
+            transacaoController.carregaTransacoesSeVazio();
+
+            ClienteController clienteController = new ClienteController();
+            clienteController.carregaClientesSeVazio();
+
         } catch (Exception e) {
             System.out.println("Erro:: " + e);
         }
@@ -55,7 +65,7 @@ public class IniciandoSistema extends javax.swing.JFrame {
 
             }
         });
-        timer.start(); 
+        timer.start();
     }
 
     /**
