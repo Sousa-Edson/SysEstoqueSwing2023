@@ -88,7 +88,7 @@ public class CFOPDAO {
     public List<CFOP> listarCFOPs() {
         List<CFOP> cfops = new ArrayList<>();
         try {
-            String sql = "SELECT id, codigo, descricao, ativo FROM cfop  where deletado = true ORDER BY id ASC";
+            String sql = "SELECT id, codigo, descricao, ativo FROM cfop  where deletado = false ORDER BY id ASC";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
