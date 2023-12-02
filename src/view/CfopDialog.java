@@ -246,6 +246,7 @@ public class CfopDialog extends javax.swing.JDialog {
                         && codigoDeConfirmacao.equals(codigoDeConfirmacaoAleatorio)) {
 
                     cfopController.marcarCFOPComoDeletado(idCfop);
+                    cfopController.carregaCfopSeVazio();
                     carregaTabela();
                 } else {
                     JOptionPane.showMessageDialog(null, "Código incorreto ou invalido.");
@@ -383,6 +384,7 @@ public class CfopDialog extends javax.swing.JDialog {
                         descricao.toUpperCase(),
                         ckAtivaCfop.isSelected())) {
                     limparCampos();
+                    cfopController.carregaCfopSeVazio();
                     carregaTabela();
                     JOptionPane.showMessageDialog(CfopDialog.this, "Cfop salva com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
