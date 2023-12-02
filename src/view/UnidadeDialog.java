@@ -269,21 +269,22 @@ public class UnidadeDialog extends javax.swing.JDialog {
             if (JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar",
                     "Informação", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]) == 0) {
 
-                    // Gerar um código aleatório
-                    String codigoDeConfirmacaoAleatorio = GerarCodigoAleatorio.gerarCodigoAleatorio();
-                    // Exibir um JOptionPane para obter o código
-                    String codigoDeConfirmacao = JOptionPane.showInputDialog(null,
-                            "Insira o código de 4 dígitos: " + codigoDeConfirmacaoAleatorio,
-                            "Confirmação", JOptionPane.WARNING_MESSAGE);
-                    // Comparar os códigos
-                    if (codigoDeConfirmacao != null && codigoDeConfirmacao.length() == 4
-                            && codigoDeConfirmacao.equals(codigoDeConfirmacaoAleatorio)) {
-                        unidadeController.marcarUnidadeComoDeletada(idUnidade);
-                        carregaTabela();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Código incorreto ou invalido.");
-                    }
-                
+                // Gerar um código aleatório
+                String codigoDeConfirmacaoAleatorio = GerarCodigoAleatorio.gerarCodigoAleatorio();
+                // Exibir um JOptionPane para obter o código
+                String codigoDeConfirmacao = JOptionPane.showInputDialog(null,
+                        "Insira o código de 4 dígitos: " + codigoDeConfirmacaoAleatorio,
+                        "Confirmação", JOptionPane.WARNING_MESSAGE);
+                // Comparar os códigos
+                if (codigoDeConfirmacao != null && codigoDeConfirmacao.length() == 4
+                        && codigoDeConfirmacao.equals(codigoDeConfirmacaoAleatorio)) {
+                    unidadeController.marcarUnidadeComoDeletada(idUnidade);
+                    unidadeController.carregarUnidadeSeVazia();
+                    carregaTabela();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Código incorreto ou invalido.");
+                }
+
             }
             System.out.println("delete - " + idUnidade);
         }
